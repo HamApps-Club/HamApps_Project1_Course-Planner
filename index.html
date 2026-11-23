@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <title>HamApps - Apps for Hamilton College Students</title>
+    <meta
+      name="description"
+      content="HamApps is a student-run organization that builds apps for the Hamilton College community."
+    />
+    <meta property="og:title" content="HamApps - Apps for Hamilton College Students" />
+    <meta property="og:site_name" content="HamApps Homepage" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body id="top">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="cont header-inner">
+        <button class="brand" type="button" data-scroll="top">
+          <img src="/logo.svg" alt="" width="36" height="36" />
+          <span>HamApps</span>
+        </button>
+        <nav class="nav">
+          <button type="button" class="nav-link" data-scroll="apps">Apps</button>
+          <button type="button" class="nav-link" data-scroll="develop">Develop</button>
+          <button type="button" class="nav-link" data-scroll="about">About</button>
+          <a class="insta" href="#" aria-label="HamApps on Instagram (link coming soon)" title="Instagram (coming soon)">
+            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2" />
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+              <circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" />
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div id="parallax" class="parallax" aria-hidden="true">
+        <div class="blob b1" data-depth="0.03"></div>
+        <div class="blob b2" data-depth="0.05"></div>
+        <div class="blob b3" data-depth="0.02"></div>
+        <div class="blob b4" data-depth="0.06"></div>
+        <div class="blob b5" data-depth="0.04"></div>
+        <div class="blob b6" data-depth="0.08"></div>
+        <div class="blob b7" data-depth="0.05"></div>
+      </div>
+
+      <div class="cont hero-inner">
+        <button id="logo-btn" class="logo-btn" type="button" aria-label="HamApps logo, click for fun">
+          <img src="/logo.svg" alt="HamApps logo" width="150" height="150" />
+        </button>
+
+        <h1 class="hero-title fade-up d1">
+          <span class="rainbow">Apps</span> for
+          <span class="underlined">
+            Hamilton College
+            <svg class="squiggle" viewBox="0 0 400 20" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M4 12 C 80 4, 160 8, 230 9 S 360 12, 396 7" />
+            </svg>
+          </span>
+        </h1>
+
+        <p class="hero-sub fade-up d2">Student-built apps to enhance your campus experience.</p>
+
+        <div class="hero-cta fade-up d3">
+          <button type="button" class="btn btn-blue" data-scroll="apps">Explore Apps</button>
+          <div class="chip-wrap">
+            <button id="email-chip" type="button" class="email-chip" title="Copy email address">
+              <span class="email-text"></span>
+              <svg class="clip-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <rect x="6" y="4" width="12" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <rect x="9" y="2.5" width="6" height="3.5" rx="1" fill="#fff" stroke="currentColor" stroke-width="1.8" />
+              </svg>
+              <svg class="check-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <span id="copy-tooltip" class="tooltip" role="status">Copied!</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wave" style="background: #ffffff">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,50 C360,100 720,0 1080,50 C1260,75 1380,75 1440,50 L1440,100 L0,100 Z" fill="#F8F9FA" />
+      </svg>
+    </div>
+
+    <!-- Apps -->
+    <section id="apps" class="section bg-light">
+      <div class="cont">
+        <div class="section-head">
+          <h2><span class="rainbow-underline">Our Apps</span></h2>
+        </div>
+        <div id="app-categories" class="categories"></div>
+        <p class="archive-note">Have an idea for the next one? <button type="button" class="text-link" data-scroll="develop">Build it with us</button></p>
+      </div>
+    </section>
+
+    <div class="wave" style="background: #F8F9FA">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,50 C360,100 720,0 1080,50 C1260,75 1380,75 1440,50 L1440,100 L0,100 Z" fill="#ffffff" />
+      </svg>
+    </div>
+
+    <!-- Develop -->
+    <section id="develop" class="section bg-white develop">
+      <div class="float-shape fs-orange" aria-hidden="true"></div>
+      <div class="float-shape fs-green" aria-hidden="true"></div>
+      <div class="cont center">
+        <p class="eyebrow eyebrow-orange">Build with us</p>
+        <h2><span class="rainbow-underline">Create the Next HamApp</span></h2>
+        <p class="lede">
+          HamApps hosts and promotes student-developed applications for the Hamilton College community.
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-icon tint-green">
+              <svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">
+                <path d="M8 26 L32 12 L56 26 Z" fill="#FF8787" stroke="#2C3E50" stroke-width="2.5" stroke-linejoin="round" />
+                <rect x="12" y="26" width="40" height="26" fill="#FFD43B" stroke="#2C3E50" stroke-width="2.5" />
+                <rect x="28" y="38" width="8" height="14" fill="#4DABF7" stroke="#2C3E50" stroke-width="2.5" />
+                <rect x="17" y="31" width="6" height="6" fill="#fff" stroke="#2C3E50" stroke-width="2" />
+                <rect x="41" y="31" width="6" height="6" fill="#fff" stroke="#2C3E50" stroke-width="2" />
+                <path d="M4 54 H60" stroke="#2C3E50" stroke-width="2.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <p>Support student life on campus or benefit a local non-profit</p>
+          </div>
+          <div class="step">
+            <div class="step-icon tint-blue">
+              <svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">
+                <path d="M32 6 l5 6 8-2 1 8 7 4-4 7 4 7-7 4-1 8-8-2-5 6-5-6-8 2-1-8-7-4 4-7-4-7 7-4 1-8 8 2z" fill="#4DABF7" stroke="#2C3E50" stroke-width="2.5" stroke-linejoin="round" />
+                <circle cx="32" cy="32" r="12" fill="#fff" stroke="#2C3E50" stroke-width="2.5" />
+                <path d="M26 32 l4 4 8-8" fill="none" stroke="#FFA94D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <p>Be fully functional with no major bugs</p>
+          </div>
+          <div class="step">
+            <div class="step-icon tint-purple">
+              <svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">
+                <rect x="8" y="8" width="48" height="36" rx="5" fill="#E5DBFF" stroke="#2C3E50" stroke-width="2.5" />
+                <path d="M8 16 H56" stroke="#2C3E50" stroke-width="2.5" />
+                <path d="M24 26 l-6 6 6 6 M40 26 l6 6-6 6 M35 23 l-6 18" fill="none" stroke="#9775FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M24 56 H40 M32 44 V56" stroke="#2C3E50" stroke-width="2.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <p>Use modern, well-supported programming languages</p>
+          </div>
+        </div>
+
+        <div class="develop-cta">
+          <a class="btn btn-outline" href="#" title="Coming soon">View Data Sources</a>
+          <a class="btn btn-orange" href="#" title="Coming soon">Submit an App</a>
+        </div>
+        <p class="muted small-note">Questions? Contact us at <span class="email-text link-blue"></span></p>
+      </div>
+    </section>
+
+    <div class="wave" style="background: #ffffff">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,50 C360,100 720,0 1080,50 C1260,75 1380,75 1440,50 L1440,100 L0,100 Z" fill="#F8F9FA" />
+      </svg>
+    </div>
+
+    <!-- About / Team -->
+    <section id="about" class="section bg-light">
+      <div class="cont">
+        <div class="section-head center">
+          <p class="eyebrow eyebrow-purple">Our Team</p>
+          <h2><span class="rainbow-underline">Meet the Team</span></h2>
+        </div>
+        <div id="role-filters" class="role-filters" role="group" aria-label="Filter members by role"></div>
+        <div id="member-groups" class="member-groups"></div>
+        <p class="placeholder-note">Placeholder roster. Add real members in <code>src/data.js</code>.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="cont center">
+        <p class="footer-name">HamApps</p>
+        <p class="footer-contact">Contact: <span class="email-text"></span></p>
+        <p class="footer-fine">
+          HamApps is a student-run organization and is not an official website of, or endorsed by, Hamilton College.
+        </p>
+        <p class="footer-fine">
+          This organization is open to all Hamilton College students interested in supporting our organization's
+          mission, regardless of identity, such as race, sex, ethnicity, national origin, or other protected
+          characteristics.
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
