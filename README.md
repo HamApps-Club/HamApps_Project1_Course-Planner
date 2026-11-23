@@ -13,57 +13,33 @@ The ideas come from Princeton's [PrincetonCourses](https://github.com/TigerAppsO
 
 ---
 
-## See it in your browser
+## See the demo
 
-Pick whichever option is easiest. You don't need to install anything for options 1 or 2.
+You don't need to install anything. You just need [Git](https://git-scm.com/downloads) to download the repo, plus a web browser.
 
-### Option 1: Open the live site
+### 1. Clone the repo
 
-**https://hamapps-club.github.io/HamApps_Project1_Course-Planner/**
-
-The site rebuilds automatically every time someone pushes to `main`.
-
-> **One-time setup (repo admin only):** the link above works only after GitHub Pages is turned on. Go to the repo's **Settings → Pages**, and under **Build and deployment → Source** choose **GitHub Actions**. Then open the **Actions** tab and re-run the latest "Deploy to GitHub Pages" run, or push any change to `main`.
-
-### Option 2: Run it in a browser tab with GitHub Codespaces
-
-1. On the repo's GitHub page, click the green **Code** button.
-2. Open the **Codespaces** tab and click **Create codespace on main**.
-3. When the terminal at the bottom is ready, run:
-   ```bash
-   npm install && npm run dev
-   ```
-4. Click **Open in Browser** in the pop-up that appears. You can also open the **Ports** tab and click the globe icon next to port 5173.
-
-### Option 3: Run it on your own computer
-
-You need [Node.js](https://nodejs.org) version 20 or newer. Choose the LTS download if you're not sure.
+Open a terminal (on Windows, use **Git Bash** or **PowerShell**) and run:
 
 ```bash
 git clone https://github.com/HamApps-Club/HamApps_Project1_Course-Planner.git
 ```
 
-```bash
-cd HamApps_Project1_Course-Planner
+No Git? On the repo's GitHub page, click the green **Code** button, choose **Download ZIP**, and unzip it.
+
+### 2. Open the demo file
+
+In the folder you just downloaded, open:
+
+```
+HamApps_Project1_Course-Planner/demo/index.html
 ```
 
-```bash
-npm install
-```
+Double-click `index.html` and it opens in your web browser. You can also drag the file onto an open browser window.
 
-```bash
-npm run dev
-```
+The site starts on the HamApps home page. Click **Open HamiltonCourses** to get to the course planner.
 
-Then open the address it prints, usually **http://localhost:5173**. The page reloads by itself whenever you save a file.
-
-### Where things are
-
-| Address | Page |
-| --- | --- |
-| `/` | HamApps home page |
-| `/#explore` | HamiltonCourses: explore courses |
-| `/#schedule` | HamiltonCourses: build a schedule |
+> The demo is the whole site packed into that one file, so it works straight from your computer. It needs an internet connection only for the fonts.
 
 ---
 
@@ -77,14 +53,40 @@ Then open the address it prints, usually **http://localhost:5173**. The page rel
 
 ---
 
-## Other commands
+## For developers: editing the code
+
+You need [Node.js](https://nodejs.org) version 20 or newer. Choose the LTS download if you're not sure. From the repo folder, run:
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+Then open the address it prints, usually **http://localhost:5173**. The page reloads by itself whenever you save a file.
+
+**After changing the code, rebuild the demo file** so `demo/index.html` matches, and commit it along with your change:
+
+```bash
+npm run build:demo
+```
 
 | Command | What it does |
 | --- | --- |
 | `npm run dev` | Starts the local development server |
-| `npm run build` | Builds the finished site into the `dist/` folder |
-| `npm run preview` | Serves the built `dist/` folder so you can check it |
+| `npm run build:demo` | Rebuilds `demo/index.html`, the one-file demo |
+| `npm run build` | Builds the site into the `dist/` folder, for hosting later |
 | `npm run lint` | Checks the code for common mistakes |
+
+### Where things are
+
+| Address | Page |
+| --- | --- |
+| `index.html` (no `#`) | HamApps home page |
+| `index.html#explore` | HamiltonCourses: explore courses |
+| `index.html#schedule` | HamiltonCourses: build a schedule |
 
 ## Project layout
 
@@ -100,4 +102,5 @@ Then open the address it prints, usually **http://localhost:5173**. The page rel
 | `src/data/courses.js` | Sample catalog data |
 | `src/lib/` | Time and conflict helpers, rating colors, saved state |
 | `src/styles.css` | All styles and color tokens (light and dark mode) |
-| `.github/workflows/deploy.yml` | Publishes the site to GitHub Pages on every push to `main` |
+| `demo/index.html` | The one-file demo, built by `npm run build:demo` |
+| `vite.demo.config.js` | Settings for building the one-file demo |
