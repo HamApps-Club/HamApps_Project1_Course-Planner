@@ -42,6 +42,8 @@ npm run dev
 
 Then open the address it prints, usually http://localhost:5173.
 
+For a quick local preview without Node.js, run `python3 preview.py` in this folder and open http://127.0.0.1:8765. This serves the same image paths that Vite serves from `public/`.
+
 ## Deploy
 
 On Vercel, import the repo with the **Vite** framework preset. The build command is `npm run build`, and the output folder is `dist`.
@@ -52,6 +54,10 @@ On Vercel, import the repo with the **Vite** framework preset. The build command
 | --- | --- |
 | `index.html` | Page structure: header, hero, sections, footer |
 | `src/data.js` | All editable content |
-| `src/main.js` | Renders apps and team, email copy chip, blob parallax, logo spin, team filters |
+| `src/main.js` | Renders apps and team, email copy chip, team filters |
 | `src/style.css` | All styles |
-| `public/logo.svg` | HamApps logo (placeholder) |
+| `public/hamapps-logo.png` | Navy and gold HamApps logo on transparent background for the header and favicon |
+| `public/hamapps-logo-on-navy.png` | Ivory and gold HamApps logo on navy for the homepage hero |
+| `preview.py` | Local homepage preview without Node.js |
+
+The homepage uses a white, navy, and muted gold palette. Most surfaces stay white, blue anchors the logo and interface, and gold highlights key details and button hover states.
