@@ -16,7 +16,7 @@ export const CATEGORIES = [
         name: 'Hamilton Scheduler',
         description:
           'Search Hamilton College courses, read ratings and comments, and build your weekly schedule with conflict checking.',
-        open: 'https://scheduler.hamapps.dev',
+        open: 'https://scheduler.hamapps.dev/',
         code: `${ORG_URL}/HamiltonScheduler`,
         credits: 'By the HamApps team.',
         thumb: 'calendar',
@@ -29,10 +29,10 @@ export const CATEGORIES = [
     apps: [
       {
         name: 'Hameats',
-        description: 'A campus dining app idea for Hamilton students. Coming soon.',
-        open: null,
+        description: 'Explore campus dining with Hameats.',
+        open: 'https://www.hameats.app/',
         code: null,
-        credits: 'Idea. Looking for builders.',
+        credits: 'For the Hamilton community.',
         thumb: 'menu',
       },
     ],
