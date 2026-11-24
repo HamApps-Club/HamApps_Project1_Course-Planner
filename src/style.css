@@ -117,11 +117,6 @@ a {
   width: 64px;
   height: 64px;
   object-fit: contain;
-  transition: opacity 0.12s ease;
-}
-
-.logo-in-flight .brand img {
-  opacity: 0;
 }
 
 .nav {
@@ -157,7 +152,7 @@ a {
   position: relative;
   overflow: hidden;
   background: #fff;
-  padding: 112px 0 100px;
+  padding: 104px 0 44px;
 }
 
 .hero-inner {
@@ -166,23 +161,6 @@ a {
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
-
-.logo-stage {
-  width: 100%;
-  height: 130px;
-}
-
-.logo-runner {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 100;
-  width: 112px;
-  height: auto;
-  transform-origin: top left;
-  pointer-events: none;
-  will-change: transform, opacity;
 }
 
 .hero-title {
@@ -229,7 +207,7 @@ a {
 }
 
 .hero-sub {
-  margin: 40px 0 0;
+  margin: 24px 0 0;
   max-width: 36rem;
   font-size: clamp(1.1rem, 2vw, 1.3rem);
   line-height: 1.6;
@@ -242,21 +220,7 @@ a {
   gap: 12px;
   justify-content: center;
   align-items: center;
-  margin-top: 28px;
-}
-
-.replay-logo {
-  margin-top: 24px;
-  color: var(--gray);
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-decoration: underline;
-  text-decoration-color: var(--gold);
-  text-underline-offset: 4px;
-}
-
-.replay-logo:hover {
-  color: var(--blue);
+  margin-top: 20px;
 }
 
 .btn {
@@ -273,17 +237,6 @@ a {
 
 .btn:hover {
   transform: translateY(-2px);
-}
-
-.btn-blue {
-  background: var(--blue);
-  color: #fff;
-  box-shadow: 0 8px 22px rgb(23 58 120 / 0.18);
-}
-
-.btn-blue:hover {
-  background: var(--gold-hover);
-  color: var(--blue-deep);
 }
 
 .btn-gold {
@@ -322,6 +275,15 @@ a {
   color: var(--gray);
   font-size: 0.95rem;
   transition: border-color 0.2s, color 0.2s;
+}
+
+.contact-prefix {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.email-chip .email-text {
+  color: var(--blue);
 }
 
 .email-chip:hover {
@@ -390,7 +352,7 @@ a {
 /* ---------- wave ---------- */
 .wave {
   position: relative;
-  height: 64px;
+  height: 36px;
   margin-bottom: -1px;
 }
 
@@ -403,7 +365,7 @@ a {
 
 /* ---------- sections ---------- */
 .section {
-  padding: 32px 0 80px;
+  padding: 24px 0 64px;
   position: relative;
 }
 
@@ -416,7 +378,7 @@ a {
 
 .section-head {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 36px;
 }
 
 .accent-underline {
@@ -449,7 +411,7 @@ a {
 /* ---------- apps ---------- */
 .categories {
   display: grid;
-  gap: 48px;
+  gap: 40px;
 }
 
 .category-head,
@@ -918,11 +880,7 @@ a {
   }
 
   .hero {
-    padding: 104px 0 72px;
-  }
-
-  .logo-stage {
-    height: 92px;
+    padding: 96px 0 48px;
   }
 
   .hero-title {
@@ -940,7 +898,13 @@ a {
   }
 
   .hero-sub {
-    margin-top: 30px;
+    margin-top: 20px;
+  }
+
+  .email-chip {
+    gap: 6px;
+    padding: 9px 12px;
+    font-size: 0.84rem;
   }
 
   .brand {
@@ -978,7 +942,4 @@ a {
     stroke-dashoffset: 0;
   }
 
-  .replay-logo {
-    display: none;
-  }
 }

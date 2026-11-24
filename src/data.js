@@ -1,7 +1,6 @@
 // Everything shown on the page lives here. Edit this file to update the site.
 
-// TODO: replace with the club's real email address
-export const CONTACT_EMAIL = 'club-email@example.com'
+export const CONTACT_EMAIL = 'it.admin@hamapps.dev'
 
 const ORG_URL = 'https://github.com/HamApps-Club'
 
