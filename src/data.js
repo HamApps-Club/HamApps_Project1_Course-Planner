@@ -5,12 +5,12 @@ export const CONTACT_EMAIL = 'club-email@example.com'
 
 const ORG_URL = 'https://github.com/HamApps-Club'
 
-// Each category has a color used for its dot, the Open button and the card hover border.
+// Category dots use shades of the club's blue palette.
 // `thumb` picks a built-in placeholder picture (see thumbs in main.js) until real screenshots exist.
 export const CATEGORIES = [
   {
     name: 'Course Planning',
-    color: '#339AF0',
+    color: '#173A78',
     apps: [
       {
         name: 'Hamilton Scheduler',
@@ -25,7 +25,7 @@ export const CATEGORIES = [
   },
   {
     name: 'Games',
-    color: '#FFA94D',
+    color: '#315A90',
     apps: [
       {
         name: 'HillGuessr',
@@ -39,7 +39,7 @@ export const CATEGORIES = [
   },
   {
     name: 'Campus Life',
-    color: '#51CF66',
+    color: '#43699A',
     apps: [
       {
         name: 'Commons Menus',
@@ -61,7 +61,7 @@ export const CATEGORIES = [
   },
   {
     name: 'Housing',
-    color: '#F783AC',
+    color: '#5A79A3',
     apps: [
       {
         name: 'Room Draw Helper',
@@ -75,14 +75,14 @@ export const CATEGORIES = [
   },
 ]
 
-// Role filter pills (color for each)
+// Team roles use the same blue and gold filter treatment.
 export const ROLES = [
-  { name: 'Board', color: '#FF6B6B' },
-  { name: 'Product Management', color: '#FFA94D' },
-  { name: 'Design', color: '#F783AC' },
-  { name: 'Marketing', color: '#51CF66' },
-  { name: 'Outreach', color: '#20C997' },
-  { name: 'Engineering', color: '#339AF0' },
+  { name: 'Board' },
+  { name: 'Product Management' },
+  { name: 'Design' },
+  { name: 'Marketing' },
+  { name: 'Outreach' },
+  { name: 'Engineering' },
 ]
 
 // Groups shown in this order. `layout: 'large'` = big centered cards (like the Board).
