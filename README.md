@@ -2,7 +2,7 @@
 
 The homepage for HamApps, a student-run club that builds apps for the Hamilton College community. It lives at **[hamapps.dev](https://hamapps.dev)**. The layout follows the [TigerApps](https://tigerapps.org) homepage: a hero with floating shapes, color-coded app categories, a "Build with us" section and a filterable team roster.
 
-> **Status: sample.** The contact email, Instagram link, team roster and most apps are placeholders. Hamilton Scheduler is the club's first real project; the other apps are ideas marked "Coming soon".
+> **Status: sample.** The Instagram link, team roster and most apps are placeholders. Hamilton Scheduler is the club's first real project; the other apps are ideas marked "Coming soon".
 
 ## How HamApps is organized
 
@@ -54,12 +54,12 @@ On Vercel, import the repo with the **Vite** framework preset. The build command
 | --- | --- |
 | `index.html` | Page structure: header, hero, sections, footer |
 | `src/data.js` | All editable content |
-| `src/main.js` | Renders apps and team, email copy chip, team filters, and the logo entrance |
+| `src/main.js` | Renders apps and team, email copy chip, and team filters |
 | `src/style.css` | All styles |
-| `public/hamapps-logo.png` | Navy and gold HamApps logo on transparent background for the entrance and favicon |
+| `public/hamapps-logo.png` | Navy and gold HamApps logo on transparent background for the favicon |
 | `public/hamapps-logo-on-navy.png` | Ivory and gold HamApps logo on navy for the header |
 | `preview.py` | Local homepage preview without Node.js |
 
 The homepage uses a white, navy, and muted gold palette. Most surfaces stay white, blue anchors the logo and interface, and gold highlights key details and button hover states.
 
-The logo hops across the space above the hero title, trips, rolls, and settles into the header once on load. Visitors can replay it with the button below the hero. Reduced-motion preferences skip the animation.
+The homepage shows the club contact address in the hero and footer. Set it once with `CONTACT_EMAIL` in `src/data.js`.
