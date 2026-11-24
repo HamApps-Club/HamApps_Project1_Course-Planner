@@ -27,6 +27,7 @@ Almost everything on the page comes from **`src/data.js`**:
 | Team members | `MEMBERS`. Put photos in `public/` and set `photo: '/name.jpg'`. |
 
 The Instagram link is in `index.html` (search for `insta`).
+Apps with an `open` URL appear under “Our Apps.” Apps without one appear in the “Future Directions” subsection until they are ready to launch.
 
 ## Run it locally
 
