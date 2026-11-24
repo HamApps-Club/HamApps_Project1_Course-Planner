@@ -65,13 +65,15 @@ const link = (href, cls, inner, title) =>
     : `<span class="${cls} is-disabled" title="Coming soon">${inner}</span>`
 
 const appsEl = document.getElementById('app-categories')
+const futureEl = document.getElementById('future-categories')
+const futureSection = document.getElementById('future-directions')
 let delay = 0
-appsEl.innerHTML = CATEGORIES.map(
+const renderCategories = (categories, headingTag) => categories.map(
   (cat) => `
   <div class="category">
     <div class="category-head">
       <span class="dot" style="background:${cat.color}"></span>
-      <h3>${esc(cat.name)}</h3>
+      <${headingTag}>${esc(cat.name)}</${headingTag}>
       <span class="rule"></span>
     </div>
     <div class="app-grid">
@@ -98,6 +100,15 @@ appsEl.innerHTML = CATEGORIES.map(
     </div>
   </div>`,
 ).join('')
+
+const withApps = (predicate) => CATEGORIES
+  .map((cat) => ({ ...cat, apps: cat.apps.filter(predicate) }))
+  .filter((cat) => cat.apps.length)
+
+appsEl.innerHTML = renderCategories(withApps((app) => Boolean(app.open)), 'h3')
+const futureCategories = withApps((app) => !app.open)
+futureEl.innerHTML = renderCategories(futureCategories, 'h4')
+futureSection.hidden = futureCategories.length === 0
 
 /* ---------- team ---------- */
 const filtersEl = document.getElementById('role-filters')
