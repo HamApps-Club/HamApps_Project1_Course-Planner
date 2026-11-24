@@ -24,52 +24,16 @@ export const CATEGORIES = [
     ],
   },
   {
-    name: 'Games',
-    color: '#FFA94D',
-    apps: [
-      {
-        name: 'HillGuessr',
-        description: 'Guess where on College Hill a mystery photo was taken. Coming soon.',
-        open: null,
-        code: null,
-        credits: 'Idea. Looking for builders.',
-        thumb: 'map',
-      },
-    ],
-  },
-  {
     name: 'Campus Life',
     color: '#51CF66',
     apps: [
       {
-        name: 'Commons Menus',
-        description: "Compare today's dining hall menus on a single page. Coming soon.",
+        name: 'Hameats',
+        description: 'A campus dining app idea for Hamilton students. Coming soon.',
         open: null,
         code: null,
         credits: 'Idea. Looking for builders.',
         thumb: 'menu',
-      },
-      {
-        name: 'Hill Map',
-        description: 'An interactive campus map with buildings, study spots and dining. Coming soon.',
-        open: null,
-        code: null,
-        credits: 'Idea. Looking for builders.',
-        thumb: 'map',
-      },
-    ],
-  },
-  {
-    name: 'Housing',
-    color: '#F783AC',
-    apps: [
-      {
-        name: 'Room Draw Helper',
-        description: 'Browse residence hall rooms and plan for housing selection. Coming soon.',
-        open: null,
-        code: null,
-        credits: 'Idea. Looking for builders.',
-        thumb: 'table',
       },
     ],
   },

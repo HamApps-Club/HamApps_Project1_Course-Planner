@@ -2,7 +2,7 @@
 
 The homepage for HamApps, a student-run club that builds apps for the Hamilton College community. It lives at **[hamapps.dev](https://hamapps.dev)**. The layout follows the [TigerApps](https://tigerapps.org) homepage: a hero with floating shapes, color-coded app categories, a "Build with us" section and a filterable team roster.
 
-> **Status: sample.** The contact email, Instagram link, team roster and most apps are placeholders. Hamilton Scheduler is the club's first real project; the other apps are ideas marked "Coming soon".
+> **Status: sample.** The contact email, Instagram link and team roster are placeholders. Hamilton Scheduler is the club's first project; Hameats is an idea marked "Coming soon".
 
 ## How HamApps is organized
 
@@ -54,4 +54,5 @@ On Vercel, import the repo with the **Vite** framework preset. The build command
 | `src/data.js` | All editable content |
 | `src/main.js` | Renders apps and team, email copy chip, blob parallax, logo spin, team filters |
 | `src/style.css` | All styles |
-| `public/logo.svg` | HamApps logo (placeholder) |
+| `public/hamapps-logo.png` | Navy and gold HamApps logo for the header and favicon |
+| `public/hamapps-logo-on-navy.png` | Ivory and gold HamApps logo for the hero |
