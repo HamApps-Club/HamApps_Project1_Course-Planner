@@ -3,7 +3,7 @@
 // TODO: replace with the club's real email address
 export const CONTACT_EMAIL = 'club-email@example.com'
 
-export const REPO_URL = 'https://github.com/HamApps-Club/HamApps_Project1_Course-Planner'
+const ORG_URL = 'https://github.com/HamApps-Club'
 
 // Each category has a color used for its dot, the Open button and the card hover border.
 // `thumb` picks a built-in placeholder picture (see thumbs in main.js) until real screenshots exist.
@@ -13,11 +13,11 @@ export const CATEGORIES = [
     color: '#339AF0',
     apps: [
       {
-        name: 'HamiltonCourses',
+        name: 'Hamilton Scheduler',
         description:
-          'Search Hamilton courses, read ratings and comments, and build your weekly schedule with conflict checking.',
-        open: null, // live link goes here once deployed
-        code: REPO_URL,
+          'Search Hamilton College courses, read ratings and comments, and build your weekly schedule with conflict checking.',
+        open: 'https://scheduler.hamapps.dev',
+        code: `${ORG_URL}/HamiltonScheduler`,
         credits: 'By the HamApps team.',
         thumb: 'calendar',
       },

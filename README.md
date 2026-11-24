@@ -1,8 +1,19 @@
-# HamApps
+# HamApps homepage
 
-The homepage for HamApps, a student-run club that builds apps for the Hamilton College community. The layout follows the [TigerApps](https://tigerapps.org) homepage: a hero with floating shapes, color-coded app categories, a "Build with us" section and a filterable team roster.
+The homepage for HamApps, a student-run club that builds apps for the Hamilton College community. It lives at **[hamapps.dev](https://hamapps.dev)**. The layout follows the [TigerApps](https://tigerapps.org) homepage: a hero with floating shapes, color-coded app categories, a "Build with us" section and a filterable team roster.
 
-> **Status: sample.** The contact email, Instagram link, team roster and most apps are placeholders. HamiltonCourses is the club's first real project; the other apps are ideas marked "Coming soon".
+> **Status: sample.** The contact email, Instagram link, team roster and most apps are placeholders. Hamilton Scheduler is the club's first real project; the other apps are ideas marked "Coming soon".
+
+## How HamApps is organized
+
+Each app is its own project with its own repo in the [HamApps-Club](https://github.com/HamApps-Club) organization and its own subdomain of `hamapps.dev`. This homepage only links to them.
+
+| Site | Address | Repo |
+| --- | --- | --- |
+| Homepage (this repo) | [hamapps.dev](https://hamapps.dev) | [HamApps-Club/homepage](https://github.com/HamApps-Club/homepage) |
+| Hamilton Scheduler | [scheduler.hamapps.dev](https://scheduler.hamapps.dev) | [HamApps-Club/HamiltonScheduler](https://github.com/HamApps-Club/HamiltonScheduler) |
+
+To add a new app: create its repo in the organization, deploy it, point a new `<name>.hamapps.dev` record in Cloudflare DNS at the host, then add a card for it in `src/data.js`.
 
 ## Edit the content
 
