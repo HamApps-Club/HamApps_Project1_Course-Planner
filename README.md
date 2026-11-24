@@ -54,5 +54,5 @@ On Vercel, import the repo with the **Vite** framework preset. The build command
 | `src/data.js` | All editable content |
 | `src/main.js` | Renders apps and team, email copy chip, blob parallax, logo spin, team filters |
 | `src/style.css` | All styles |
-| `public/hamapps-logo.png` | Navy and gold HamApps logo for the header and favicon |
-| `public/hamapps-logo-on-navy.png` | Ivory and gold HamApps logo for the hero |
+| `public/hamapps-logo.png` | Navy and gold HamApps logo for the header |
+| `public/hamapps-logo-on-navy.png` | Ivory and gold HamApps logo on navy for the hero and browser tab |
