@@ -25,7 +25,7 @@
     <header class="site-header">
       <div class="cont header-inner">
         <button class="brand" type="button" data-scroll="top">
-          <img src="/hamapps-logo.png" alt="" width="54" height="54" />
+          <span class="brand-logo-frame"><img src="/hamapps-logo-on-navy.png" alt="" width="64" height="64" /></span>
           <span>HamApps</span>
         </button>
         <nav class="nav">
@@ -46,38 +46,28 @@
     <!-- Hero -->
     <section id="hero" class="hero">
       <div class="cont hero-inner">
-        <div class="hero-copy">
-          <p class="hero-eyebrow fade-up">Student-built at Hamilton College</p>
-          <h1 class="hero-title fade-up d1">
-            <span class="accent-text">Apps</span> for
-            <span class="underlined">
-              Hamilton College
-              <svg class="squiggle" viewBox="0 0 400 20" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M4 12 C 80 4, 160 8, 230 9 S 360 12, 396 7" />
+        <div id="logo-stage" class="logo-stage" aria-hidden="true"></div>
+        <h1 class="hero-title fade-up d1">
+          <span class="accent-text">Apps</span> for <span class="underlined">Hamilton College<svg class="squiggle" viewBox="0 0 400 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 12 C 80 4, 160 8, 230 9 S 360 12, 396 7" /></svg></span>
+        </h1>
+        <p class="hero-sub fade-up d2">Student-built apps to enhance your campus experience.</p>
+        <div class="hero-cta fade-up d3">
+          <button type="button" class="btn btn-blue" data-scroll="apps">Explore Apps</button>
+          <div class="chip-wrap">
+            <button id="email-chip" type="button" class="email-chip" title="Copy email address">
+              <span class="email-text"></span>
+              <svg class="clip-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <rect x="6" y="4" width="12" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <rect x="9" y="2.5" width="6" height="3.5" rx="1" fill="#fff" stroke="currentColor" stroke-width="1.8" />
               </svg>
-            </span>
-          </h1>
-          <p class="hero-sub fade-up d2">Student-built apps to enhance your campus experience.</p>
-          <div class="hero-cta fade-up d3">
-            <button type="button" class="btn btn-blue" data-scroll="apps">Explore Apps</button>
-            <div class="chip-wrap">
-              <button id="email-chip" type="button" class="email-chip" title="Copy email address">
-                <span class="email-text"></span>
-                <svg class="clip-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-                  <rect x="6" y="4" width="12" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.8" />
-                  <rect x="9" y="2.5" width="6" height="3.5" rx="1" fill="#fff" stroke="currentColor" stroke-width="1.8" />
-                </svg>
-                <svg class="check-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-                  <path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </button>
-              <span id="copy-tooltip" class="tooltip" role="status">Copied!</span>
-            </div>
+              <svg class="check-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <span id="copy-tooltip" class="tooltip" role="status">Copied!</span>
           </div>
         </div>
-        <div class="hero-mark fade-up d2">
-          <img src="/hamapps-logo-on-navy.png" alt="HamApps club logo" width="480" height="480" />
-        </div>
+        <button id="replay-logo" class="replay-logo" type="button" aria-label="Replay the HamApps logo animation">Replay logo animation ↺</button>
       </div>
     </section>
 
