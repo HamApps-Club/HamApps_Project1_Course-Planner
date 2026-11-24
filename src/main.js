@@ -65,8 +65,6 @@ const link = (href, cls, inner, title) =>
     : `<span class="${cls} is-disabled" title="Coming soon">${inner}</span>`
 
 const appsEl = document.getElementById('app-categories')
-const futureEl = document.getElementById('future-categories')
-const futureSection = document.getElementById('future-directions')
 let delay = 0
 const renderCategories = (categories, headingTag) => categories.map(
   (cat) => `
@@ -101,14 +99,7 @@ const renderCategories = (categories, headingTag) => categories.map(
   </div>`,
 ).join('')
 
-const withApps = (predicate) => CATEGORIES
-  .map((cat) => ({ ...cat, apps: cat.apps.filter(predicate) }))
-  .filter((cat) => cat.apps.length)
-
-appsEl.innerHTML = renderCategories(withApps((app) => Boolean(app.open)), 'h3')
-const futureCategories = withApps((app) => !app.open)
-futureEl.innerHTML = renderCategories(futureCategories, 'h4')
-futureSection.hidden = futureCategories.length === 0
+appsEl.innerHTML = renderCategories(CATEGORIES, 'h3')
 
 /* ---------- team ---------- */
 const filtersEl = document.getElementById('role-filters')
