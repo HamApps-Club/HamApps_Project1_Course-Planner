@@ -118,6 +118,7 @@ a {
   width: 64px;
   height: 64px;
   object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .nav {
@@ -828,7 +829,7 @@ a {
 
 /* ---------- footer ---------- */
 .site-footer {
-  background: var(--blue-deep);
+  background: var(--fb-blue);
   color: #fff;
   border-top: 5px solid var(--gold);
   padding: 48px 0 56px;
