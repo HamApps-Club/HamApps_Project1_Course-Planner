@@ -12,6 +12,65 @@ document.addEventListener('click', (e) => {
   target?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' })
 })
 
+/* ---------- logo entrance: hop, trip, roll into the header ---------- */
+const logoStage = document.getElementById('logo-stage')
+const brandLogo = document.querySelector('.brand-logo-frame img')
+let activeLogoAnimation = null
+
+function playLogoAnimation() {
+  if (reduceMotion || !logoStage || !brandLogo || !Element.prototype.animate) return
+
+  activeLogoAnimation?.cancel()
+  document.querySelector('.logo-runner')?.remove()
+  document.documentElement.classList.remove('logo-in-flight')
+
+  const stage = logoStage.getBoundingClientRect()
+  const destination = brandLogo.getBoundingClientRect()
+  if (stage.bottom < 0 || stage.top > window.innerHeight) return
+
+  const runner = document.createElement('img')
+  runner.src = '/hamapps-logo.png'
+  runner.className = 'logo-runner'
+  runner.alt = ''
+  runner.setAttribute('aria-hidden', 'true')
+  document.body.append(runner)
+  document.documentElement.classList.add('logo-in-flight')
+
+  const x = (fraction) => stage.left + stage.width * fraction - 56
+  const y = stage.top + 12
+  const endScale = destination.width / 112
+  const position = (left, top, degrees, scaleX = 1, scaleY = scaleX) =>
+    `translate(${left}px, ${top}px) rotate(${degrees}deg) scale(${scaleX}, ${scaleY})`
+
+  const animation = runner.animate([
+    { offset: 0, transform: position(x(0.08), y - 115, -14, 0.8), opacity: 0 },
+    { offset: 0.08, transform: position(x(0.17), y - 45, 8), opacity: 1 },
+    { offset: 0.17, transform: position(x(0.28), y + 12, 0, 1.08, 0.86) },
+    { offset: 0.27, transform: position(x(0.40), y - 48, -12) },
+    { offset: 0.36, transform: position(x(0.51), y + 12, 6, 1.06, 0.9) },
+    { offset: 0.46, transform: position(x(0.63), y - 34, -8) },
+    { offset: 0.54, transform: position(x(0.71), y + 12, 24) },
+    { offset: 0.61, transform: position(x(0.73), y + 18, 85, 1.04, 0.82) },
+    { offset: 0.72, transform: position(x(0.60), y + 10, 265) },
+    { offset: 0.82, transform: position(x(0.40), y + 2, 500, 0.88) },
+    { offset: 0.94, transform: position(destination.left, destination.top + 4, 720, endScale) },
+    { offset: 1, transform: position(destination.left, destination.top + 4, 720, endScale) },
+  ], { duration: 2800, easing: 'ease-in-out', fill: 'forwards' })
+
+  activeLogoAnimation = animation
+  const finish = () => {
+    runner.remove()
+    if (activeLogoAnimation === animation) {
+      activeLogoAnimation = null
+      document.documentElement.classList.remove('logo-in-flight')
+    }
+  }
+  animation.finished.then(finish, finish)
+}
+
+document.getElementById('replay-logo')?.addEventListener('click', playLogoAnimation)
+window.addEventListener('load', () => setTimeout(playLogoAnimation, 300), { once: true })
+
 /* ---------- email text + copy chip ---------- */
 document.querySelectorAll('.email-text').forEach((el) => (el.textContent = CONTACT_EMAIL))
 

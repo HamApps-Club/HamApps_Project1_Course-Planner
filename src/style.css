@@ -75,10 +75,13 @@ a {
   inset: 0 0 auto;
   z-index: 50;
   height: 72px;
-  background: rgb(255 255 255 / 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--light-mid);
+  background: var(--blue);
+  border-bottom: 1px solid rgb(255 255 255 / 0.15);
+  color: #fff;
+}
+
+.site-header :focus-visible {
+  outline-color: var(--gold);
 }
 
 .header-inner {
@@ -91,17 +94,34 @@ a {
 .brand {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 10px;
   font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: -0.01em;
 }
 
+.brand-logo-frame {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  flex: none;
+  border-radius: 10px;
+  background: var(--blue);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.14);
+}
+
 .brand img {
   display: block;
-  width: 54px;
-  height: 54px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
+  transition: opacity 0.12s ease;
+}
+
+.logo-in-flight .brand img {
+  opacity: 0;
 }
 
 .nav {
@@ -113,23 +133,23 @@ a {
 }
 
 .nav-link {
-  color: var(--gray);
+  color: #e8eef8;
   transition: color 0.2s;
 }
 
 .nav-link:hover {
-  color: var(--blue);
+  color: var(--gold-hover);
   box-shadow: inset 0 -3px var(--gold);
 }
 
 .insta {
-  color: var(--gray);
+  color: #e8eef8;
   display: flex;
   transition: color 0.2s;
 }
 
 .insta:hover {
-  color: var(--gold-ink);
+  color: var(--gold-hover);
 }
 
 /* ---------- hero ---------- */
@@ -137,52 +157,41 @@ a {
   position: relative;
   overflow: hidden;
   background: #fff;
-  padding: 132px 0 88px;
+  padding: 112px 0 100px;
 }
 
 .hero-inner {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: clamp(32px, 6vw, 84px);
+  text-align: center;
 }
 
-.hero-copy {
-  min-width: 0;
-}
-
-.hero-eyebrow {
-  margin: 0 0 22px;
-  color: var(--gold-ink);
-  font-size: 0.88rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.hero-mark {
+.logo-stage {
   width: 100%;
-  max-width: 480px;
-  justify-self: end;
-  overflow: hidden;
-  border-radius: 28px;
-  background: var(--blue);
-  box-shadow: 0 22px 48px rgb(16 46 100 / 0.16);
+  height: 130px;
 }
 
-.hero-mark img {
-  width: 100%;
+.logo-runner {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 112px;
   height: auto;
-  display: block;
+  transform-origin: top left;
+  pointer-events: none;
+  will-change: transform, opacity;
 }
 
 .hero-title {
   margin: 0;
-  font-size: clamp(3.2rem, 5.5vw, 5.25rem);
+  font-size: clamp(2.2rem, 5.3vw, 4.4rem);
   font-weight: 800;
-  line-height: 1.06;
-  letter-spacing: -0.035em;
+  line-height: 1.18;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
 }
 
 .accent-text {
@@ -192,13 +201,14 @@ a {
 .underlined {
   position: relative;
   display: inline-block;
+  white-space: nowrap;
 }
 
 .squiggle {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -0.12em;
+  bottom: -0.1em;
   width: 100%;
   height: 0.28em;
   overflow: visible;
@@ -219,7 +229,7 @@ a {
 }
 
 .hero-sub {
-  margin: 30px 0 0;
+  margin: 40px 0 0;
   max-width: 36rem;
   font-size: clamp(1.1rem, 2vw, 1.3rem);
   line-height: 1.6;
@@ -230,9 +240,23 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 28px;
+}
+
+.replay-logo {
+  margin-top: 24px;
+  color: var(--gray);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 4px;
+}
+
+.replay-logo:hover {
+  color: var(--blue);
 }
 
 .btn {
@@ -893,22 +917,16 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .squiggle {
-    display: none;
-  }
-
   .hero {
-    padding: 112px 0 72px;
+    padding: 104px 0 72px;
   }
 
-  .hero-inner {
-    grid-template-columns: 1fr;
-    gap: 48px;
+  .logo-stage {
+    height: 92px;
   }
 
-  .hero-mark {
-    max-width: 420px;
-    justify-self: center;
+  .hero-title {
+    white-space: normal;
   }
 }
 
@@ -918,11 +936,15 @@ a {
   }
 
   .hero-title {
-    font-size: clamp(2.8rem, 11vw, 4rem);
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
   }
 
-  .hero-mark {
-    max-width: 340px;
+  .hero-sub {
+    margin-top: 30px;
+  }
+
+  .brand {
+    font-size: 1.1rem;
   }
 
   .member-grid.large {
@@ -954,5 +976,9 @@ a {
 
   .squiggle path {
     stroke-dashoffset: 0;
+  }
+
+  .replay-logo {
+    display: none;
   }
 }

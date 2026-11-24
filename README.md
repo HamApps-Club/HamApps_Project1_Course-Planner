@@ -54,10 +54,12 @@ On Vercel, import the repo with the **Vite** framework preset. The build command
 | --- | --- |
 | `index.html` | Page structure: header, hero, sections, footer |
 | `src/data.js` | All editable content |
-| `src/main.js` | Renders apps and team, email copy chip, team filters |
+| `src/main.js` | Renders apps and team, email copy chip, team filters, and the logo entrance |
 | `src/style.css` | All styles |
-| `public/hamapps-logo.png` | Navy and gold HamApps logo on transparent background for the header and favicon |
-| `public/hamapps-logo-on-navy.png` | Ivory and gold HamApps logo on navy for the homepage hero |
+| `public/hamapps-logo.png` | Navy and gold HamApps logo on transparent background for the entrance and favicon |
+| `public/hamapps-logo-on-navy.png` | Ivory and gold HamApps logo on navy for the header |
 | `preview.py` | Local homepage preview without Node.js |
 
 The homepage uses a white, navy, and muted gold palette. Most surfaces stay white, blue anchors the logo and interface, and gold highlights key details and button hover states.
+
+The logo hops across the space above the hero title, trips, rolls, and settles into the header once on load. Visitors can replay it with the button below the hero. Reduced-motion preferences skip the animation.
