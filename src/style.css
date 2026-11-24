@@ -596,23 +596,6 @@ a {
   line-height: 1.5;
 }
 
-.archive-note {
-  margin: 48px 0 0;
-  text-align: center;
-  color: var(--gray);
-  font-size: 1.05rem;
-}
-
-.text-link {
-  color: var(--blue);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.text-link:hover {
-  color: var(--gold-ink);
-}
-
 /* ---------- develop ---------- */
 .develop {
   overflow: hidden;
