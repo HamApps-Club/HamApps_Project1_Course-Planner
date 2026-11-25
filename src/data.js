@@ -46,26 +46,33 @@ export const ROLES = [
   { name: 'Marketing' },
   { name: 'Outreach' },
   { name: 'Engineering' },
+  { name: 'Infrastructure' },
+  { name: 'Member' },
 ]
 
 // Groups shown in this order. `layout: 'large'` = big centered cards (like the Board).
+// 'Team Leads' renders from LEADS below instead of MEMBERS, since a lead can also be an officer.
 export const GROUPS = [
   { name: 'Board', layout: 'large' },
   { name: 'Team Leads', layout: 'compact' },
   { name: 'Members', layout: 'compact' },
 ]
 
-// PLACEHOLDER roster. Replace with real members.
-// photo: path to an image in /public (optional) · github: username (optional) · site: URL (optional)
+// Lead assignments per the HamApps constitution. `names: []` shows as "TBD".
+export const LEADS = [
+  { title: 'PM Lead', role: 'Product Management', names: ['Brandon Taylor', 'Zhuo (Philip) Li'] },
+  { title: 'Tech Lead', role: 'Engineering', names: ['Brandon Taylor', 'Zhuo (Philip) Li'] },
+  { title: 'Infrastructure Lead', role: 'Infrastructure', names: ['Brandon Taylor'] },
+  { title: 'Design Lead', role: 'Design', names: [] },
+  { title: 'Marketing Lead', role: 'Marketing', names: [] },
+  { title: 'Outreach Lead', role: 'Outreach', names: [] },
+]
+
+// Current roster. `group: 'Team Leads'` entries are no longer used here — see LEADS above.
 export const MEMBERS = [
-  { name: 'Your Name', year: '28', group: 'Board', position: 'President', title: 'Software Developer', roles: ['Board', 'Engineering'] },
-  { name: 'Your Name', year: '28', group: 'Board', position: 'Vice President', title: 'Designer & Developer', roles: ['Board', 'Design'] },
-  { name: 'Your Name', year: '29', group: 'Board', position: 'Head of Marketing', title: 'Marketer', roles: ['Board', 'Marketing'] },
-  { name: 'Your Name', year: '29', group: 'Board', position: 'Treasurer', title: 'Outreach', roles: ['Board', 'Outreach'] },
-  { name: 'Your Name', year: '29', group: 'Team Leads', position: 'PM Lead', title: 'Product Manager', roles: ['Product Management'] },
-  { name: 'Your Name', year: '28', group: 'Team Leads', position: 'Tech Lead', title: 'Software Developer', roles: ['Engineering'] },
-  { name: 'Your Name', year: '29', group: 'Team Leads', position: 'Design Lead', title: 'Product Designer', roles: ['Design'] },
-  { name: 'Your Name', year: '29', group: 'Members', title: 'Software Developer', roles: ['Engineering'] },
-  { name: 'Your Name', year: '30', group: 'Members', title: 'Software Developer', roles: ['Engineering'] },
-  { name: 'Your Name', year: '30', group: 'Members', title: 'Outreach', roles: ['Outreach'] },
+  { name: 'Brandon Taylor', year: '28', group: 'Board', position: 'President', title: 'PM Lead & Tech Lead', roles: ['Board', 'Product Management', 'Engineering', 'Infrastructure'] },
+  { name: 'Zhuo (Philip) Li', year: '29', group: 'Board', position: 'Vice President', title: 'PM Lead & Tech Lead', roles: ['Board', 'Product Management', 'Engineering', 'Design'] },
+  { name: 'Haiqi Lyu', year: '29', group: 'Board', position: 'Secretary', title: 'Graphic Designer', roles: ['Board', 'Design'] },
+  { name: 'Maun', year: '28', group: 'Board', position: 'Treasurer', title: 'Beta Tester', roles: ['Board'] },
+  { name: 'June', year: '27', group: 'Members', title: 'Developer', roles: ['Member'] },
 ]
