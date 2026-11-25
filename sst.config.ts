@@ -28,6 +28,9 @@ export default $config({
     }
     const site = new sst.aws.StaticSite('Homepage', {
       build: { command: 'npm run build', output: 'dist' },
+      // Unknown addresses get public/404.html with a real 404 status, instead of a copy of the homepage
+      // (search engines treat that as duplicate "soft 404" pages).
+      errorPage: '404.html',
       domain: {
         name: 'hamapps.dev',
         redirects: ['www.hamapps.dev'],
