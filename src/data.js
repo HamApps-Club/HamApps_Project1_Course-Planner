@@ -61,14 +61,15 @@ export const GROUPS = [
 // card listing all their roles via `leadRoles` (position = lead title, shown in blue;
 // title = a short descriptor). Single-role leads just use `position`/`title` directly.
 export const MEMBERS = [
-  { name: 'Brandon Taylor', year: '28', group: 'Board', position: 'President', title: 'PM Lead & Tech Lead', roles: ['Board', 'Product Management', 'Engineering', 'Infrastructure'] },
-  { name: 'Zhuo (Philip) Li', year: '29', group: 'Board', position: 'Vice President', title: 'PM Lead & Tech Lead', roles: ['Board', 'Product Management', 'Engineering', 'Design'] },
+  { name: 'Brandon Niles Taylor', year: '28', group: 'Board', position: 'President', title: 'PM Lead & Tech Lead', github: 'brandonnilestaylor', roles: ['Board', 'Product Management', 'Engineering', 'Infrastructure'] },
+  { name: 'Zhuo (Philip) Li', year: '29', group: 'Board', position: 'Vice President', title: 'PM Lead & Tech Lead', github: 'flp-lab', roles: ['Board', 'Product Management', 'Engineering', 'Design'] },
   { name: 'Haiqi Lyu', year: '29', group: 'Board', position: 'Secretary', title: 'Graphic Designer', roles: ['Board', 'Design'] },
-  { name: 'Maun', year: '28', group: 'Board', position: 'Treasurer', title: 'Beta Tester', roles: ['Board'] },
+  { name: 'Maung Thein Nyunt', year: '28', group: 'Board', position: 'Treasurer', title: 'Beta Tester', roles: ['Board'] },
   {
-    name: 'Brandon Taylor',
+    name: 'Brandon Niles Taylor',
     year: '28',
     group: 'Team Leads',
+    github: 'brandonnilestaylor',
     leadRoles: [
       { position: 'PM Lead', title: 'Product Manager' },
       { position: 'Tech Lead', title: 'Software Developer' },
@@ -80,6 +81,7 @@ export const MEMBERS = [
     name: 'Zhuo (Philip) Li',
     year: '29',
     group: 'Team Leads',
+    github: 'flp-lab',
     leadRoles: [
       { position: 'PM Lead', title: 'Product Manager' },
       { position: 'Tech Lead', title: 'Software Developer' },
@@ -89,6 +91,6 @@ export const MEMBERS = [
   { name: 'TBD', group: 'Team Leads', position: 'Design Lead', title: 'Product Designer', roles: ['Design'] },
   { name: 'TBD', group: 'Team Leads', position: 'Marketing Lead', title: 'Marketer', roles: ['Marketing'] },
   { name: 'TBD', group: 'Team Leads', position: 'Outreach Lead', title: 'Outreach', roles: ['Outreach'] },
-  { name: 'June', year: '27', group: 'Members', title: 'Developer', roles: ['Member'] },
+  { name: 'Jun Seo', year: '27', group: 'Members', title: 'Developer', roles: ['Member'] },
 ]
 

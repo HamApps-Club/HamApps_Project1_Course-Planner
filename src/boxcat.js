@@ -27,9 +27,6 @@ function cat({ eyes = 'logo' } = {}) {
   </g>`
 }
 
-const heart = (cx, cy, s) =>
-  `<path class="bc-heart" d="M${cx} ${cy + s * 0.9} C${cx - s * 1.5} ${cy + s * 0.05} ${cx - s * 0.95} ${cy - s * 1.05} ${cx} ${cy - s * 0.35} C${cx + s * 0.95} ${cy - s * 1.05} ${cx + s * 1.5} ${cy + s * 0.05} ${cx} ${cy + s * 0.9} Z"/>`
-
 // Ambient poses the mascot eases into when left alone for a while.
 const AMBIENT_POSES = ['hello', 'curious', 'stretch', 'think', 'love']
 const AMBIENT_DELAY = 9000
@@ -38,10 +35,9 @@ const AMBIENT_DURATION = 4000
 export function mountBoxCat(stage) {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   stage.classList.add('bc-stage', 'bc-idle', 'bc-twitch')
-  stage.innerHTML = `<svg viewBox="-90 -170 1180 1180" role="img" aria-label="HamApps mascot">${cat()}<g class="bc-burst"></g></svg>`
+  stage.innerHTML = `<svg viewBox="-90 -170 1180 1180" role="img" aria-label="HamApps mascot">${cat()}</svg>`
 
   const track = stage.querySelector('.bc-eyes-track')
-  const burst = stage.querySelector('.bc-burst')
   let ambientTimer = null
   let lastInteraction = 0
 
@@ -53,19 +49,9 @@ export function mountBoxCat(stage) {
       const pose = AMBIENT_POSES[Math.floor(Math.random() * AMBIENT_POSES.length)]
       stage.classList.remove('bc-idle', 'bc-twitch')
       stage.classList.add(`bc-p-${pose}`)
-      if (pose === 'love') {
-        burst.innerHTML = [
-          [980, 120, 36, ''],
-          [60, 300, 28, 'd1'],
-          [560, 0, 24, 'd2'],
-        ]
-          .map(([x, y, s, d]) => `<g class="bc-float ${d}">${heart(x, y, s)}</g>`)
-          .join('')
-      }
       setTimeout(() => {
         stage.classList.remove(`bc-p-${pose}`)
         stage.classList.add('bc-idle', 'bc-twitch')
-        burst.innerHTML = ''
         scheduleAmbient()
       }, AMBIENT_DURATION)
     }, AMBIENT_DELAY)
@@ -89,15 +75,6 @@ export function mountBoxCat(stage) {
     stage.classList.remove('bc-jump', 'bc-idle', 'bc-p-hello', 'bc-p-curious', 'bc-p-stretch', 'bc-p-think', 'bc-p-love')
     void stage.offsetWidth
     stage.classList.add('bc-jump')
-    if (!reduceMotion) {
-      burst.innerHTML = [
-        [980, 120, 44, ''],
-        [80, 260, 34, 'd1'],
-        [1020, 520, 30, 'd2'],
-      ]
-        .map(([x, y, s, d]) => `<g class="bc-float ${d}" style="animation-iteration-count:1">${heart(x, y, s)}</g>`)
-        .join('')
-    }
   })
 
   stage.addEventListener('animationend', (e) => {

@@ -227,7 +227,6 @@ a {
 .bc-stage .bc-solid { fill: var(--fb-blue); }
 .bc-stage .bc-lid { fill: var(--gold); }
 .bc-stage .bc-body-fill { fill: none; }
-.bc-stage .bc-heart { fill: var(--accent-coral); }
 .bc-stage svg * { transform-box: view-box; }
 
 .hero-dark .bc-stage .bc-ln { stroke: #f8f4ee; }
@@ -239,10 +238,6 @@ a {
 .bc-brow { transform-origin: 808px 140px; }
 .bc-curlA { transform-origin: 125px 625px; }
 .bc-curlB { transform-origin: 385px 822px; }
-.bc-float { animation: bc-floatUp 2.6s ease-out infinite; transform-origin: center; }
-.bc-float.d1 { animation-delay: .9s; }
-.bc-float.d2 { animation-delay: 1.7s; }
-@keyframes bc-floatUp { 0% { transform: translateY(40px) scale(.6); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(-230px) scale(1); opacity: 0; } }
 
 .bc-idle .bc-rig { animation: bc-breathe 3s ease-in-out infinite; }
 @keyframes bc-breathe { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.02, .98); } }
@@ -429,6 +424,27 @@ a {
 
 .email-chip.copied .check-icon {
   display: block;
+}
+
+.github-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid var(--light-mid);
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.github-chip:hover {
+  border-color: var(--gold);
+  background: #fff9e9;
+  color: var(--fb-blue);
 }
 
 .tooltip {
