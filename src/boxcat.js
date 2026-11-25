@@ -12,7 +12,7 @@ function cat({ eyes = 'logo' } = {}) {
   return `
   <g class="bc-rig">
     <path class="bc-body-fill" d="M285 32 L432 102 L675 15 L972 165 L972 580 L605 715 L333 557 L334 178 Z"/>
-    <path class="bc-lid" d="M440 112 L675 40 L935 180 L818 226 L812 140 L780 133 Z"/>
+    <path class="bc-lid" d="M432 102 L675 15 L972 165 L818 226 Z"/>
     <g class="bc-ear"><path class="bc-ln" d="M334 178 L285 32 Q392 28 432 102"/></g>
     <path class="bc-ln" d="M334 178 L331 552 L125 625"/>
     <path class="bc-ln" d="M432 102 L675 15 L972 165 L972 580 L385 822"/>
