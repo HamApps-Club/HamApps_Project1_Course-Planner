@@ -169,8 +169,8 @@ a {
 }
 
 .hero-logo {
-  width: clamp(140px, 20vw, 200px);
-  height: clamp(140px, 20vw, 200px);
+  width: clamp(100px, 12vw, 128px);
+  height: clamp(100px, 12vw, 128px);
   margin: 0 0 16px;
   border: 0;
   padding: 0;
@@ -189,8 +189,11 @@ a {
 .bc-stage .bc-ln { fill: none; stroke: #fff; stroke-width: 38; stroke-linecap: round; stroke-linejoin: round; }
 .bc-stage .bc-solid { fill: #fff; }
 .bc-stage .bc-lid { fill: var(--gold); }
-.bc-stage .bc-body-fill { fill: var(--charcoal); }
+.bc-stage .bc-body-fill { fill: var(--fb-blue); }
 .bc-stage .bc-heart { fill: var(--accent-coral); }
+/* the two leg curls dangle outside the body fill, so a white stroke would vanish on the page's white background */
+.bc-stage .bc-curlA .bc-ln,
+.bc-stage .bc-curlB .bc-ln { stroke: var(--fb-blue); }
 .bc-stage svg * { transform-box: view-box; }
 
 .bc-eyes { transform-origin: center; animation: bc-blink 4.2s infinite; }
