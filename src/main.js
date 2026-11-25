@@ -1,4 +1,4 @@
-import { CATEGORIES, CONTACT_EMAIL, GROUPS, MEMBERS, ROLES } from './data.js'
+import { CATEGORIES, CONTACT_EMAIL, GROUPS, LEADS, MEMBERS, ROLES } from './data.js'
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const esc = (s) =>
@@ -136,9 +136,34 @@ function renderFilters() {
     .join('')
 }
 
+function renderLeads() {
+  const leads = activeRole === 'All' ? LEADS : LEADS.filter((l) => l.role === activeRole)
+  if (!leads.length) return ''
+  return `
+    <section class="member-group">
+      <div class="group-head"><h4>Team Leads</h4><span class="rule"></span></div>
+      <ul class="lead-list">
+        ${leads
+          .map(
+            (l) => `
+          <li class="lead-row">
+            <span class="lead-title">${esc(l.title)}</span>
+            <span class="lead-names${l.names.length ? '' : ' is-tbd'}">${l.names.length ? esc(l.names.join(', ')) : 'TBD'}</span>
+          </li>`,
+          )
+          .join('')}
+      </ul>
+    </section>`
+}
+
 function renderMembers() {
   let n = 0
   groupsEl.innerHTML = GROUPS.map((g) => {
+    if (g.name === 'Team Leads') {
+      const html = renderLeads()
+      if (html) n++
+      return html
+    }
     const people = MEMBERS.filter((m) => m.group === g.name && (activeRole === 'All' || m.roles?.includes(activeRole)))
     if (!people.length) return ''
     return `
