@@ -57,18 +57,35 @@ export const GROUPS = [
   { name: 'Members', layout: 'compact' },
 ]
 
-// Current roster. Officers who also hold a lead title get one card per lead role under
-// Team Leads (position = lead title, shown in blue; title = a short descriptor).
+// Current roster. Officers who hold more than one lead title get a single Team Leads
+// card listing all their roles via `leadRoles` (position = lead title, shown in blue;
+// title = a short descriptor). Single-role leads just use `position`/`title` directly.
 export const MEMBERS = [
   { name: 'Brandon Taylor', year: '28', group: 'Board', position: 'President', title: 'PM Lead & Tech Lead', roles: ['Board', 'Product Management', 'Engineering', 'Infrastructure'] },
   { name: 'Zhuo (Philip) Li', year: '29', group: 'Board', position: 'Vice President', title: 'PM Lead & Tech Lead', roles: ['Board', 'Product Management', 'Engineering', 'Design'] },
   { name: 'Haiqi Lyu', year: '29', group: 'Board', position: 'Secretary', title: 'Graphic Designer', roles: ['Board', 'Design'] },
   { name: 'Maun', year: '28', group: 'Board', position: 'Treasurer', title: 'Beta Tester', roles: ['Board'] },
-  { name: 'Brandon Taylor', year: '28', group: 'Team Leads', position: 'PM Lead', title: 'Product Manager', roles: ['Product Management'] },
-  { name: 'Brandon Taylor', year: '28', group: 'Team Leads', position: 'Tech Lead', title: 'Software Developer', roles: ['Engineering'] },
-  { name: 'Brandon Taylor', year: '28', group: 'Team Leads', position: 'Infrastructure Lead', title: 'Systems & Deployment', roles: ['Infrastructure'] },
-  { name: 'Zhuo (Philip) Li', year: '29', group: 'Team Leads', position: 'PM Lead', title: 'Product Manager', roles: ['Product Management'] },
-  { name: 'Zhuo (Philip) Li', year: '29', group: 'Team Leads', position: 'Tech Lead', title: 'Software Developer', roles: ['Engineering'] },
+  {
+    name: 'Brandon Taylor',
+    year: '28',
+    group: 'Team Leads',
+    leadRoles: [
+      { position: 'PM Lead', title: 'Product Manager' },
+      { position: 'Tech Lead', title: 'Software Developer' },
+      { position: 'Infrastructure Lead', title: 'Systems & Deployment' },
+    ],
+    roles: ['Product Management', 'Engineering', 'Infrastructure'],
+  },
+  {
+    name: 'Zhuo (Philip) Li',
+    year: '29',
+    group: 'Team Leads',
+    leadRoles: [
+      { position: 'PM Lead', title: 'Product Manager' },
+      { position: 'Tech Lead', title: 'Software Developer' },
+    ],
+    roles: ['Product Management', 'Engineering'],
+  },
   { name: 'TBD', group: 'Team Leads', position: 'Design Lead', title: 'Product Designer', roles: ['Design'] },
   { name: 'TBD', group: 'Team Leads', position: 'Marketing Lead', title: 'Marketer', roles: ['Marketing'] },
   { name: 'TBD', group: 'Team Leads', position: 'Outreach Lead', title: 'Outreach', roles: ['Outreach'] },
