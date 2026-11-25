@@ -4,3 +4,8 @@ dist
 *.log
 .vercel
 __pycache__/
+
+# Secrets and SST (AWS deploy tool) local state
+.env
+.env.*
+.sst/

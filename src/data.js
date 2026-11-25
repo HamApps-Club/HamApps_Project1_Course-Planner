@@ -29,7 +29,7 @@ export const CATEGORIES = [
       {
         name: 'Hameats',
         description: 'Explore campus dining with Hameats.',
-        open: 'https://www.hameats.app/',
+        open: 'https://hameats.app',
         code: null,
         credits: 'For the Hamilton community.',
         thumb: 'menu',

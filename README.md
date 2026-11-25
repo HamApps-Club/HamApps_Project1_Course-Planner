@@ -12,7 +12,7 @@ Each app is its own project with its own repo in the [HamApps-Club](https://gith
 | --- | --- | --- |
 | Homepage (this repo) | [hamapps.dev](https://hamapps.dev) | [HamApps-Club/homepage](https://github.com/HamApps-Club/homepage) |
 | Hamilton Scheduler | [scheduler.hamapps.dev](https://scheduler.hamapps.dev) | [HamApps-Club/HamiltonScheduler](https://github.com/HamApps-Club/HamiltonScheduler) |
-| Hameats | [hameats.app](https://www.hameats.app/) | Separate app; source repository is not linked here |
+| Hameats | [hameats.app](https://hameats.app) | Separate app; source repository is not linked here |
 
 To add a new app: create its repo in the organization, deploy it, point a new `<name>.hamapps.dev` record in Cloudflare DNS at the host, then add a card for it in `src/data.js`.
 
