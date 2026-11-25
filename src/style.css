@@ -160,6 +160,42 @@ a {
   padding: 172px 0 44px;
 }
 
+.hero-dark {
+  background: radial-gradient(120% 140% at 50% -10%, #133f80 0%, #0b2b5a 60%, #0b2b5a 100%);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bcbg-part {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.bcbg-part svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.bcbg-ln { fill: none; stroke: #f8f4ee; stroke-width: 38; stroke-linecap: round; stroke-linejoin: round; }
+.bcbg-solid { fill: #f8f4ee; }
+.bcbg-lid { fill: var(--gold); }
+.bcbg-body { fill: #0f366f; }
+.bcbg-shadow { fill: #000; opacity: .2; }
+.bcbg-chute { fill: var(--gold); stroke: #f8f4ee; stroke-width: 26; stroke-linejoin: round; }
+.bcbg-balloon { fill: var(--accent-coral); stroke: #f8f4ee; stroke-width: 18; }
+.bcbg-bubble { fill: rgba(170,205,255,.12); stroke: rgba(248,244,238,.6); stroke-width: 14; }
+.bcbg-cloud { fill: #dfe7f5; }
+.bcbg-plane { fill: #f8f4ee; }
+.bcbg-flame { fill: var(--gold); }
+
 .hero-inner {
   position: relative;
   display: flex;
@@ -192,6 +228,9 @@ a {
 .bc-stage .bc-body-fill { fill: none; }
 .bc-stage .bc-heart { fill: var(--accent-coral); }
 .bc-stage svg * { transform-box: view-box; }
+
+.hero-dark .bc-stage .bc-ln { stroke: #f8f4ee; }
+.hero-dark .bc-stage .bc-solid { fill: #f8f4ee; }
 
 .bc-eyes { transform-origin: center; animation: bc-blink 4.2s infinite; }
 @keyframes bc-blink { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
@@ -247,124 +286,14 @@ a {
   .bc-stage *, .bc-stage *::before, .bc-stage *::after { animation: none !important; }
 }
 
-.hero-blob {
-  position: absolute;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.hb-1 {
-  top: 64px;
-  left: 6%;
-  width: 70px;
-  height: 70px;
-  background: var(--gold);
-  opacity: 0.35;
-  border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
-  animation: drift 10s ease-in-out infinite;
-}
-
-.hb-2 {
-  top: 150px;
-  right: 10%;
-  width: 56px;
-  height: 56px;
-  background: var(--accent-violet);
-  opacity: 0.3;
-  border-radius: 50%;
-  animation: float 7s ease-in-out infinite;
-  animation-delay: -2s;
-}
-
-.hb-3 {
-  bottom: 48px;
-  left: 14%;
-  width: 40px;
-  height: 40px;
-  background: var(--accent-teal);
-  opacity: 0.35;
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  animation: pulse-float 6s ease-in-out infinite;
-  animation-delay: -1s;
-}
-
-.hb-4 {
-  bottom: 100px;
-  right: 6%;
-  width: 90px;
-  height: 90px;
-  background: var(--fb-blue);
-  opacity: 0.18;
-  border-radius: 38% 62% 55% 45% / 55% 45% 55% 45%;
-  animation: drift 13s ease-in-out infinite;
-  animation-delay: -6s;
-}
-
-.hb-5 {
-  top: 24px;
-  left: 42%;
-  width: 26px;
-  height: 26px;
-  background: var(--accent-coral);
-  opacity: 0.4;
-  border-radius: 50%;
-  animation: float 5.5s ease-in-out infinite;
-  animation-delay: -3s;
-}
-
-.hb-6 {
-  top: 90px;
-  right: 28%;
-  width: 34px;
-  height: 34px;
-  background: var(--gold-hover);
-  opacity: 0.4;
-  border-radius: 50%;
-  animation: pulse-float 7.5s ease-in-out infinite;
-  animation-delay: -4.5s;
-}
-
-.hb-7 {
-  bottom: 20px;
-  left: 30%;
-  width: 54px;
-  height: 54px;
-  background: var(--fb-blue-dark);
-  opacity: 0.16;
-  border-radius: 55% 45% 60% 40% / 40% 55% 45% 60%;
-  animation: drift 11.5s ease-in-out infinite;
-  animation-delay: -8s;
-}
-
-.hb-8 {
-  top: 220px;
-  right: 4%;
-  width: 20px;
-  height: 20px;
-  background: var(--accent-violet);
-  opacity: 0.4;
-  border-radius: 50%;
-  animation: float 6.5s ease-in-out infinite;
-  animation-delay: -1.5s;
-}
-
-@keyframes drift {
-  0%, 100% { translate: 0 0; rotate: 0deg; }
-  50% { translate: 14px -18px; rotate: 10deg; }
-}
-
-@keyframes pulse-float {
-  0%, 100% { translate: 0 0; scale: 1; }
-  50% { translate: 0 -10px; scale: 1.08; }
-}
-
 .hero-title {
   margin: 0;
-  color: var(--heading);
+  color: #f8f4ee;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
   font-size: clamp(2.2rem, 5.3vw, 4.4rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.18;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   white-space: nowrap;
 }
 
@@ -390,7 +319,7 @@ a {
 
 .squiggle path {
   fill: none;
-  stroke: var(--fb-blue);
+  stroke: var(--gold);
   stroke-width: 6;
   stroke-linecap: round;
   stroke-dasharray: 420;
@@ -407,7 +336,7 @@ a {
   max-width: 36rem;
   font-size: clamp(1.1rem, 2vw, 1.3rem);
   line-height: 1.6;
-  color: var(--gray-dark);
+  color: #c8d5e9;
 }
 
 .hero-cta {
