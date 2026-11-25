@@ -169,18 +169,82 @@ a {
 }
 
 .hero-logo {
-  width: 96px;
-  height: 96px;
-  margin: 0 0 24px;
-  background-color: var(--fb-blue);
-  -webkit-mask-image: url('/hamapps-logo.png');
-  mask-image: url('/hamapps-logo.png');
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
+  width: clamp(140px, 20vw, 200px);
+  height: clamp(140px, 20vw, 200px);
+  margin: 0 0 16px;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.hero-logo svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+/* box-cat mascot: parts traced from the logo, in its own 1000x856 drawing space */
+.bc-stage .bc-ln { fill: none; stroke: #fff; stroke-width: 38; stroke-linecap: round; stroke-linejoin: round; }
+.bc-stage .bc-solid { fill: #fff; }
+.bc-stage .bc-lid { fill: var(--gold); }
+.bc-stage .bc-body-fill { fill: var(--charcoal); }
+.bc-stage .bc-heart { fill: var(--accent-coral); }
+.bc-stage svg * { transform-box: view-box; }
+
+.bc-eyes { transform-origin: center; animation: bc-blink 4.2s infinite; }
+@keyframes bc-blink { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
+.bc-ear { transform-origin: 334px 178px; }
+.bc-brow { transform-origin: 808px 140px; }
+.bc-curlA { transform-origin: 125px 625px; }
+.bc-curlB { transform-origin: 385px 822px; }
+.bc-float { animation: bc-floatUp 2.6s ease-out infinite; transform-origin: center; }
+.bc-float.d1 { animation-delay: .9s; }
+.bc-float.d2 { animation-delay: 1.7s; }
+@keyframes bc-floatUp { 0% { transform: translateY(40px) scale(.6); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(-230px) scale(1); opacity: 0; } }
+
+.bc-idle .bc-rig { animation: bc-breathe 3s ease-in-out infinite; }
+@keyframes bc-breathe { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.02, .98); } }
+.bc-idle .bc-curlA { animation: bc-tap 3s ease-in-out infinite; }
+@keyframes bc-tap { 0%, 70%, 100% { transform: rotate(0); } 78% { transform: rotate(-14deg); } 86% { transform: rotate(4deg); } }
+.bc-twitch .bc-ear { animation: bc-ear-twitch 3.4s infinite; }
+@keyframes bc-ear-twitch { 0%, 80%, 100% { transform: rotate(0); } 84% { transform: rotate(-9deg); } 88% { transform: rotate(3deg); } 92% { transform: rotate(-5deg); } }
+
+.bc-jump .bc-rig { animation: bc-jump-kf .9s cubic-bezier(.3,.7,.4,1) 1; }
+@keyframes bc-jump-kf { 0% { transform: scale(1.08,.88); } 30% { transform: translateY(-120px) scale(.95,1.06) rotate(-5deg); } 60% { transform: translateY(0) scale(1.1,.88); } 80% { transform: scale(.97,1.03); } 100% { transform: none; } }
+
+.bc-p-hello .bc-rig { animation: bc-sway 2.4s ease-in-out infinite; }
+@keyframes bc-sway { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+.bc-p-hello .bc-curlA { animation: bc-wave .6s ease-in-out infinite alternate; }
+@keyframes bc-wave { from { transform: rotate(-38deg) translateY(-20px); } to { transform: rotate(8deg); } }
+
+.bc-p-curious .bc-rig { animation: bc-tilt 3.2s ease-in-out infinite; }
+@keyframes bc-tilt { 0%, 15%, 100% { transform: rotate(0); } 30%, 65% { transform: rotate(-9deg); } 80% { transform: rotate(3deg); } }
+.bc-p-curious .bc-brow { animation: bc-brow-up 3.2s ease-in-out infinite; }
+@keyframes bc-brow-up { 0%, 20%, 75%, 100% { transform: rotate(0); } 32%, 65% { transform: rotate(-12deg); } }
+.bc-p-curious .bc-eyes-track { animation: bc-glance 3.2s ease-in-out infinite; }
+@keyframes bc-glance { 0%, 25%, 100% { transform: translate(0, 0); } 35%, 65% { transform: translate(24px, -16px); } }
+
+.bc-p-stretch .bc-rig { transform-origin: 972px 840px; animation: bc-stretch-kf 3s ease-in-out infinite; }
+@keyframes bc-stretch-kf { 0%, 20%, 100% { transform: none; } 45%, 70% { transform: scale(1.12, .86) skewX(-6deg); } }
+.bc-p-stretch .bc-curlA { animation: bc-reach 3s ease-in-out infinite; }
+@keyframes bc-reach { 0%, 20%, 100% { transform: none; } 45%, 70% { transform: translateX(-40px) rotate(-32deg); } }
+.bc-p-stretch .bc-ear { animation: bc-ear-back 3s ease-in-out infinite; }
+@keyframes bc-ear-back { 0%, 20%, 100% { transform: none; } 45%, 70% { transform: rotate(-12deg); } }
+
+.bc-p-think .bc-rig { animation: bc-ponder 3s ease-in-out infinite; }
+@keyframes bc-ponder { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-3deg); } }
+.bc-p-think .bc-brow { transform: rotate(-12deg); }
+.bc-p-think .bc-eyes-track { transform: translate(22px, -24px); }
+
+.bc-p-love .bc-rig { animation: bc-wiggle 1.6s ease-in-out infinite; }
+@keyframes bc-wiggle { 0%, 100% { transform: rotate(0) scale(1); } 25% { transform: rotate(-3deg) scale(1.02); } 75% { transform: rotate(3deg) scale(1.02); } }
+.bc-p-love .bc-eyes { animation: bc-pulse .8s ease-in-out infinite; }
+@keyframes bc-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .bc-stage *, .bc-stage *::before, .bc-stage *::after { animation: none !important; }
 }
 
 .hero-blob {
