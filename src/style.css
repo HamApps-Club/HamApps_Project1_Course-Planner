@@ -10,6 +10,7 @@
   --blue-soft: #e7eef8;
   --fb-blue: #1877f2;
   --fb-blue-dark: #0a3e91;
+  --sky-blue: #5ec8fa;
   --accent-teal: #2dd4bf;
   --accent-coral: #ff6f61;
   --accent-violet: #a78bfa;
@@ -319,7 +320,7 @@ a {
 
 .squiggle path {
   fill: none;
-  stroke: var(--gold);
+  stroke: var(--sky-blue);
   stroke-width: 6;
   stroke-linecap: round;
   stroke-dasharray: 420;
