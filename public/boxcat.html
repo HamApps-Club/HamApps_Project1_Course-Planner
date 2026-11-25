@@ -134,9 +134,75 @@ svg * { transform-box: view-box; }
 .p-flip .spark.d1 { animation-delay: .3s; } .p-flip .spark.d2 { animation-delay: .6s; }
 @keyframes twinkle { 0%, 40%, 100% { transform: scale(0) rotate(0); } 60% { transform: scale(1) rotate(45deg); } 80% { transform: scale(0) rotate(90deg); } }
 
+/* stretch */
+.p-stretch .rig { transform-origin: 972px 840px; animation: stretch 3s ease-in-out infinite; }
+@keyframes stretch { 0%, 20%, 100% { transform: none; } 45%, 70% { transform: scale(1.12, .86) skewX(-6deg); } }
+.p-stretch .curlA { animation: reach 3s ease-in-out infinite; }
+@keyframes reach { 0%, 20%, 100% { transform: none; } 45%, 70% { transform: translateX(-40px) rotate(-32deg); } }
+.p-stretch .ear { animation: earBack 3s ease-in-out infinite; }
+@keyframes earBack { 0%, 20%, 100% { transform: none; } 45%, 70% { transform: rotate(-12deg); } }
+
+/* zoom */
+.p-zoom .rig { animation: run .3s ease-in-out infinite alternate; }
+@keyframes run { from { transform: translateY(0) rotate(3deg); } to { transform: translateY(-34px) rotate(5deg); } }
+.p-zoom .curlA { animation: legs .3s ease-in-out infinite alternate; }
+.p-zoom .curlB { animation: legs .3s ease-in-out infinite alternate-reverse; }
+@keyframes legs { from { transform: rotate(-26deg); } to { transform: rotate(20deg); } }
+.p-zoom .ear { transform: rotate(-10deg); }
+.p-zoom .speed { animation: speed .6s linear infinite; opacity: 0; }
+.p-zoom .speed.d1 { animation-delay: .2s; } .p-zoom .speed.d2 { animation-delay: .4s; }
+@keyframes speed { 0% { transform: translateX(120px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateX(-180px); opacity: 0; } }
+
+/* startled */
+.p-startled .rig { animation: startle 2.6s infinite; }
+@keyframes startle { 0%, 55%, 100% { transform: none; } 60% { transform: translateY(-150px) scale(.95, 1.08); } 72% { transform: translateY(-120px); } 85% { transform: translateY(0) scale(1.06, .94); } 92% { transform: none; } }
+.p-startled .eyes { animation: eyesPop 2.6s infinite; }
+@keyframes eyesPop { 0%, 55%, 92%, 100% { transform: scale(1); } 60%, 85% { transform: scale(.55); } }
+.p-startled .ear { animation: earUp 2.6s infinite; }
+@keyframes earUp { 0%, 55%, 92%, 100% { transform: none; } 60%, 85% { transform: rotate(8deg); } }
+.p-startled .bang { transform-origin: 960px 60px; animation: bang 2.6s infinite; }
+@keyframes bang { 0%, 55%, 95%, 100% { transform: scale(0); } 62% { transform: scale(1.3); } 70%, 88% { transform: scale(1); } }
+
+/* roll */
+.p-roll .rig { transform-origin: 560px 430px; animation: roll 3.2s linear infinite; }
+@keyframes roll { from { transform: translateX(-1150px) rotate(-360deg); } to { transform: translateX(1150px) rotate(360deg); } }
+
+/* dance */
+.p-dance .rig { animation: dance 1s ease-in-out infinite; }
+@keyframes dance { 0%, 100% { transform: rotate(-7deg); } 25%, 75% { transform: translateY(-55px); } 50% { transform: rotate(7deg); } }
+.p-dance .curlA { animation: step .5s ease-in-out infinite alternate; }
+.p-dance .curlB { animation: step .5s ease-in-out infinite alternate-reverse; }
+@keyframes step { from { transform: rotate(0); } to { transform: rotate(-32deg); } }
+
+/* thinking */
+.p-think .rig { animation: ponder 3s ease-in-out infinite; }
+@keyframes ponder { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-3deg); } }
+.p-think .brow { transform: rotate(-12deg); }
+.p-think .eyes-track { transform: translate(22px, -24px); }
+.p-think .bub { animation: bub 3s infinite; opacity: 0; }
+.p-think .bub.d1 { animation-delay: .35s; } .p-think .bub.d2 { animation-delay: .7s; }
+@keyframes bub { 0% { opacity: 0; } 15%, 75% { opacity: 1; } 95%, 100% { opacity: 0; } }
+
+/* rainy day */
+.p-rain .rig { animation: sigh 4s ease-in-out infinite; }
+@keyframes sigh { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.03, .95); } }
+.p-rain .ear { transform: rotate(-14deg); }
+.p-rain .brow { transform: rotate(12deg); }
+.p-rain .eyes { animation: none; transform: translateY(24px) scaleY(.5); }
+.p-rain .drop { animation: drop 1s linear infinite; opacity: 0; }
+.p-rain .drop.d1 { animation-delay: .33s; } .p-rain .drop.d2 { animation-delay: .66s; }
+@keyframes drop { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(230px); opacity: 0; } }
+.cloud { fill: #c9d4ea; }
+
+/* coffee */
+.p-coffee .rig { animation: sway 3s ease-in-out infinite; }
+.p-coffee .steam { animation: steam 2.4s ease-in-out infinite; opacity: 0; }
+.p-coffee .steam.d1 { animation-delay: .8s; } .p-coffee .steam.d2 { animation-delay: 1.6s; }
+@keyframes steam { 0% { transform: translateY(20px); opacity: 0; } 40% { opacity: .9; } 100% { transform: translateY(-70px); opacity: 0; } }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; }
-  .float, .z, .key { opacity: 1 !important; }
+  .float, .z, .key, .bub, .drop, .steam, .speed { opacity: 1 !important; }
 }
 </style>
 </head>
@@ -220,6 +286,27 @@ const POSES = [
       <text class="txt key d2" x="930" y="760" font-size="90">;</text>` },
   { id: 'flip', name: 'Backflip', note: 'Celebrating a merged pull request.',
     art: cat({ eyes: 'happy' }) + sparkle(60, 120, 50) + sparkle(1000, -40, 60, 'd1') + sparkle(1020, 700, 40, 'd2') },
+  { id: 'stretch', name: 'Stretch', note: 'A long cat stretch after a coding session.',
+    art: cat({ eyes: 'happy' }) },
+  { id: 'zoom', name: 'Zoom', note: 'Late to the club meeting.',
+    art: `<path class="ln speed" d="M-60 160 L160 160"/><path class="ln speed d1" d="M-40 290 L200 290"/><path class="ln speed d2" d="M-60 420 L120 420"/>` + cat() },
+  { id: 'startled', name: 'Startled', note: 'The build failed.',
+    art: cat() + `<text class="txt bang" x="925" y="110" font-size="200" style="fill:var(--gold)">!</text>` },
+  { id: 'roll', name: 'Roll', note: 'Tumbles across like a dropped box.',
+    art: cat() },
+  { id: 'dance', name: 'Dance', note: 'Tapping both curls to the beat.',
+    art: cat({ eyes: 'happy' }) + `<text class="txt float" x="960" y="160" font-size="120" style="fill:var(--gold)">♪</text><text class="txt float d1" x="-40" y="300" font-size="100">♫</text><text class="txt float d2" x="820" y="-20" font-size="90">♪</text>` },
+  { id: 'think', name: 'Thinking', note: 'Planning the next app.',
+    art: cat() + `<circle class="solid bub" cx="880" cy="110" r="18"/><circle class="solid bub d1" cx="935" cy="40" r="28"/>
+      <g class="bub d2"><ellipse class="solid" cx="970" cy="-70" rx="95" ry="62"/><circle cx="930" cy="-70" r="12" fill="var(--navy)"/><circle cx="970" cy="-70" r="12" fill="var(--navy)"/><circle cx="1010" cy="-70" r="12" fill="var(--navy)"/></g>` },
+  { id: 'rain', name: 'Rainy day', note: 'Ear down, waiting out the weather.',
+    art: cat() + `<g class="cloud"><circle cx="520" cy="-70" r="70"/><circle cx="430" cy="-40" r="52"/><circle cx="610" cy="-40" r="52"/><rect x="430" y="-40" width="180" height="52"/></g>
+      <path class="ln drop" style="stroke:#9fc0f0;stroke-width:22" d="M460 40 L450 80"/><path class="ln drop d1" style="stroke:#9fc0f0;stroke-width:22" d="M530 40 L520 80"/><path class="ln drop d2" style="stroke:#9fc0f0;stroke-width:22" d="M600 40 L590 80"/>` },
+  { id: 'coffee', name: 'Coffee break', note: 'Balancing a mug on one curl.',
+    art: cat({ eyes: 'closed' }) + `<path class="body-fill" style="stroke:var(--cream);stroke-width:30;stroke-linejoin:round" d="M-10 340 L110 340 L100 470 L0 470 Z"/>
+      <path class="ln" style="stroke-width:26" d="M-10 370 Q-70 380 -55 420 Q-45 450 0 440"/>
+      <rect class="gold" x="0" y="355" width="100" height="22" rx="6"/>
+      <path class="ln steam" style="stroke-width:18" d="M30 300 Q10 260 30 230 Q50 200 30 170"/><path class="ln steam d1" style="stroke-width:18" d="M70 300 Q50 260 70 230 Q90 200 70 170"/><path class="ln steam d2" style="stroke-width:18" d="M50 300 Q30 260 50 230 Q70 200 50 170"/>` },
 ];
 
 document.getElementById('grid').innerHTML = POSES.map(p => `
