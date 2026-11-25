@@ -1,8 +1,14 @@
 import { CATEGORIES, CONTACT_EMAIL, GROUPS, MEMBERS, ROLES } from './data.js'
+import { mountBoxCat } from './boxcat.js'
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const esc = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
+
+/* ---------- hero mascot ---------- */
+const heroStage = document.getElementById('hero-logo-stage')
+if (heroStage) mountBoxCat(heroStage)
+
 
 /* ---------- smooth scroll buttons ---------- */
 document.addEventListener('click', (e) => {
