@@ -28,9 +28,9 @@ export default $config({
     }
     const site = new sst.aws.StaticSite('Homepage', {
       build: { command: 'npm run build', output: 'dist' },
-      // Unknown addresses get public/404.html with a real 404 status, instead of a copy of the homepage
-      // (search engines treat that as duplicate "soft 404" pages).
-      errorPage: '404.html',
+      // Unknown addresses show the homepage (the canonical tag in index.html tells search engines it's all
+      // https://hamapps.dev/). Don't set `errorPage` here: with SST 4.17 CloudFront then fetches the error page
+      // from SST's placeholder origin and visitors get a 502.
       domain: {
         name: 'hamapps.dev',
         redirects: ['www.hamapps.dev'],
