@@ -31,58 +31,19 @@ chip?.addEventListener('click', async () => {
   }, 1600)
 })
 
-/* ---------- blob parallax ---------- */
-if (!reduceMotion) {
-  const blobs = document.querySelectorAll('.blob')
-  let tx = 0, ty = 0, cx = 0, cy = 0
-  document.addEventListener('mousemove', (e) => {
-    tx = e.clientX / window.innerWidth - 0.5
-    ty = e.clientY / window.innerHeight - 0.5
-  })
-  const tick = () => {
-    cx += (tx - cx) * 0.06
-    cy += (ty - cy) * 0.06
-    const scroll = window.scrollY
-    blobs.forEach((b) => {
-      const d = parseFloat(b.dataset.depth || '0.05')
-      b.style.setProperty('--px', `${cx * d * -400}px`)
-      b.style.setProperty('--py', `${cy * d * -400 + scroll * d * 2}px`)
-    })
-    requestAnimationFrame(tick)
-  }
-  tick()
-}
-
-/* ---------- logo spin on click ---------- */
-const logo = document.getElementById('logo-btn')
-let spinning = false
-logo?.addEventListener('click', () => {
-  if (spinning || reduceMotion) return
-  spinning = true
-  logo.animate(
-    [
-      { transform: 'rotate(0deg) scale(1)' },
-      { transform: 'rotate(180deg) scale(0.9)', offset: 0.5 },
-      { transform: 'rotate(360deg) scale(1.15)', offset: 0.65 },
-      { transform: 'rotate(360deg) scale(1)' },
-    ],
-    { duration: 1000, easing: 'ease-out' },
-  ).onfinish = () => (spinning = false)
-})
-
 /* ---------- app placeholder thumbnails ---------- */
 const thumbs = {
   calendar: () => {
-    const cols = ['#A5D8FF', '#FFC9C9', '#B2F2BB', '#FFEC99', '#D0BFFF']
+    const cols = ['#C6D5ED', '#E3C777', '#D9E4F3', '#F0DFA7', '#9FB7DA']
     let blocks = ''
     const spots = [[0, 1, 2], [1, 0, 1], [2, 1, 2], [3, 0, 1], [4, 1, 2], [1, 3, 2], [3, 3, 2], [0, 4, 1], [2, 4, 1], [4, 4, 1], [2, 6, 2]]
     spots.forEach(([d, t, h], i) => {
       blocks += `<rect x="${8 + d * 37}" y="${22 + t * 15}" width="33" height="${h * 15 - 3}" rx="2" fill="${cols[i % cols.length]}"/>`
     })
-    return `<svg viewBox="0 0 200 150"><rect width="200" height="150" fill="#fff"/><rect width="200" height="14" fill="#F1F3F5"/>${blocks}</svg>`
+    return `<svg viewBox="0 0 200 150"><rect width="200" height="150" fill="#fff"/><rect width="200" height="14" fill="#E7EEF8"/>${blocks}</svg>`
   },
   map: () =>
-    `<svg viewBox="0 0 200 150"><rect width="200" height="150" fill="#D3F9D8"/><path d="M0 100 C50 80 90 120 200 70" stroke="#fff" stroke-width="8" fill="none"/><path d="M60 0 L90 150" stroke="#fff" stroke-width="6"/><rect x="110" y="20" width="30" height="22" fill="#B2F2BB" stroke="#69DB7C"/><rect x="20" y="30" width="26" height="30" fill="#B2F2BB" stroke="#69DB7C"/><rect x="130" y="95" width="34" height="24" fill="#B2F2BB" stroke="#69DB7C"/><circle cx="118" cy="66" r="8" fill="#FF6B6B"/></svg>`,
+    `<svg viewBox="0 0 200 150"><rect width="200" height="150" fill="#E7EEF8"/><path d="M0 100 C50 80 90 120 200 70" stroke="#fff" stroke-width="8" fill="none"/><path d="M60 0 L90 150" stroke="#fff" stroke-width="6"/><rect x="110" y="20" width="30" height="22" fill="#A9BFDF" stroke="#456A9E"/><rect x="20" y="30" width="26" height="30" fill="#A9BFDF" stroke="#456A9E"/><rect x="130" y="95" width="34" height="24" fill="#A9BFDF" stroke="#456A9E"/><circle cx="118" cy="66" r="8" fill="#E3C777"/></svg>`,
   menu: () => {
     let lines = ''
     for (let c = 0; c < 3; c++) for (let r = 0; r < 7; r++) lines += `<rect x="${12 + c * 62}" y="${40 + r * 14}" width="${40 + ((r * 7 + c * 3) % 14)}" height="5" rx="2" fill="#CED4DA"/>`
@@ -90,8 +51,8 @@ const thumbs = {
   },
   table: () => {
     let rows = ''
-    for (let r = 0; r < 8; r++) rows += `<rect x="10" y="${30 + r * 14}" width="180" height="1" fill="#E9ECEF"/><rect x="14" y="${34 + r * 14}" width="40" height="5" rx="2" fill="#CED4DA"/><rect x="70" y="${34 + r * 14}" width="60" height="5" rx="2" fill="#CED4DA"/><rect x="160" y="${33 + r * 14}" width="24" height="7" rx="3" fill="#748FFC"/>`
-    return `<svg viewBox="0 0 200 150"><rect width="200" height="150" fill="#fff"/><rect width="200" height="18" fill="#748FFC"/>${rows}</svg>`
+    for (let r = 0; r < 8; r++) rows += `<rect x="10" y="${30 + r * 14}" width="180" height="1" fill="#DCE5F1"/><rect x="14" y="${34 + r * 14}" width="40" height="5" rx="2" fill="#C6D5ED"/><rect x="70" y="${34 + r * 14}" width="60" height="5" rx="2" fill="#C6D5ED"/><rect x="160" y="${33 + r * 14}" width="24" height="7" rx="3" fill="#E3C777"/>`
+    return `<svg viewBox="0 0 200 150"><rect width="200" height="150" fill="#fff"/><rect width="200" height="18" fill="#173A78"/>${rows}</svg>`
   },
 }
 
@@ -105,12 +66,12 @@ const link = (href, cls, inner, title) =>
 
 const appsEl = document.getElementById('app-categories')
 let delay = 0
-appsEl.innerHTML = CATEGORIES.map(
+const renderCategories = (categories, headingTag) => categories.map(
   (cat) => `
   <div class="category">
     <div class="category-head">
       <span class="dot" style="background:${cat.color}"></span>
-      <h3>${esc(cat.name)}</h3>
+      <${headingTag}>${esc(cat.name)}</${headingTag}>
       <span class="rule"></span>
     </div>
     <div class="app-grid">
@@ -118,7 +79,7 @@ appsEl.innerHTML = CATEGORIES.map(
         .map((app) => {
           delay += 0.05
           return `
-        <article class="app-card fade-up" style="--cat:${cat.color}; animation-delay:${delay.toFixed(2)}s">
+        <article class="app-card fade-up" style="animation-delay:${delay.toFixed(2)}s">
           <div class="app-left">
             ${link(app.open, 'thumb', thumbs[app.thumb]?.() ?? '')}
             <div class="app-actions">
@@ -137,6 +98,8 @@ appsEl.innerHTML = CATEGORIES.map(
     </div>
   </div>`,
 ).join('')
+
+appsEl.innerHTML = renderCategories(CATEGORIES, 'h3')
 
 /* ---------- team ---------- */
 const filtersEl = document.getElementById('role-filters')
@@ -164,11 +127,11 @@ const memberLinks = (m) => {
 }
 
 function renderFilters() {
-  const pills = [{ name: 'All', color: '#9775FA' }, ...ROLES]
+  const pills = [{ name: 'All' }, ...ROLES]
   filtersEl.innerHTML = pills
     .map(
       (r) =>
-        `<button type="button" class="role-pill${activeRole === r.name ? ' active' : ''}" style="--role:${r.color}" aria-pressed="${activeRole === r.name}" data-role="${esc(r.name)}">${esc(r.name)}</button>`,
+        `<button type="button" class="role-pill${activeRole === r.name ? ' active' : ''}" aria-pressed="${activeRole === r.name}" data-role="${esc(r.name)}">${esc(r.name)}</button>`,
     )
     .join('')
 }

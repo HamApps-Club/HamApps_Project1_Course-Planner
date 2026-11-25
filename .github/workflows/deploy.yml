@@ -1,0 +1,44 @@
+# Deploys the HamApps homepage to AWS (hamapps.dev) on every push to main: builds, then
+# `sst deploy --stage production`. Signs in with the role from infra/github-deploy-role.yaml; no AWS keys in GitHub.
+# Needs the repository variable AWS_DEPLOY_ROLE_ARN and the secrets listed under `env` below
+# (Settings > Secrets and variables > Actions).
+name: Deploy to AWS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+# One deploy at a time; a newer push waits for the running one instead of cancelling it mid-deploy.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: vars.AWS_DEPLOY_ROLE_ARN != ''
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-2
+
+      - name: Deploy (sst deploy --stage production)
+        run: npx sst deploy --stage production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_DEFAULT_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_DEFAULT_ACCOUNT_ID }}

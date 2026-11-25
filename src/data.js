@@ -1,22 +1,21 @@
 // Everything shown on the page lives here. Edit this file to update the site.
 
-// TODO: replace with the club's real email address
-export const CONTACT_EMAIL = 'club-email@example.com'
+export const CONTACT_EMAIL = 'it.admin@hamapps.dev'
 
 const ORG_URL = 'https://github.com/HamApps-Club'
 
-// Each category has a color used for its dot, the Open button and the card hover border.
+// Category dots use shades of the club's blue palette.
 // `thumb` picks a built-in placeholder picture (see thumbs in main.js) until real screenshots exist.
 export const CATEGORIES = [
   {
     name: 'Course Planning',
-    color: '#339AF0',
+    color: '#173A78',
     apps: [
       {
         name: 'Hamilton Scheduler',
         description:
           'Search Hamilton College courses, read ratings and comments, and build your weekly schedule with conflict checking.',
-        open: 'https://scheduler.hamapps.dev',
+        open: 'https://scheduler.hamapps.dev/',
         code: `${ORG_URL}/HamiltonScheduler`,
         credits: 'By the HamApps team.',
         thumb: 'calendar',
@@ -24,65 +23,29 @@ export const CATEGORIES = [
     ],
   },
   {
-    name: 'Games',
-    color: '#FFA94D',
-    apps: [
-      {
-        name: 'HillGuessr',
-        description: 'Guess where on College Hill a mystery photo was taken. Coming soon.',
-        open: null,
-        code: null,
-        credits: 'Idea. Looking for builders.',
-        thumb: 'map',
-      },
-    ],
-  },
-  {
     name: 'Campus Life',
-    color: '#51CF66',
+    color: '#43699A',
     apps: [
       {
-        name: 'Commons Menus',
-        description: "Compare today's dining hall menus on a single page. Coming soon.",
-        open: null,
+        name: 'Hameats',
+        description: 'Explore campus dining with Hameats.',
+        open: 'https://hameats.app',
         code: null,
-        credits: 'Idea. Looking for builders.',
+        credits: 'For the Hamilton community.',
         thumb: 'menu',
-      },
-      {
-        name: 'Hill Map',
-        description: 'An interactive campus map with buildings, study spots and dining. Coming soon.',
-        open: null,
-        code: null,
-        credits: 'Idea. Looking for builders.',
-        thumb: 'map',
-      },
-    ],
-  },
-  {
-    name: 'Housing',
-    color: '#F783AC',
-    apps: [
-      {
-        name: 'Room Draw Helper',
-        description: 'Browse residence hall rooms and plan for housing selection. Coming soon.',
-        open: null,
-        code: null,
-        credits: 'Idea. Looking for builders.',
-        thumb: 'table',
       },
     ],
   },
 ]
 
-// Role filter pills (color for each)
+// Team roles use the same blue and gold filter treatment.
 export const ROLES = [
-  { name: 'Board', color: '#FF6B6B' },
-  { name: 'Product Management', color: '#FFA94D' },
-  { name: 'Design', color: '#F783AC' },
-  { name: 'Marketing', color: '#51CF66' },
-  { name: 'Outreach', color: '#20C997' },
-  { name: 'Engineering', color: '#339AF0' },
+  { name: 'Board' },
+  { name: 'Product Management' },
+  { name: 'Design' },
+  { name: 'Marketing' },
+  { name: 'Outreach' },
+  { name: 'Engineering' },
 ]
 
 // Groups shown in this order. `layout: 'large'` = big centered cards (like the Board).
