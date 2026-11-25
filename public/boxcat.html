@@ -33,7 +33,13 @@ body { margin: 0; background: var(--ink); color: var(--cream); font-family: var(
 .stage svg { width: 100%; height: auto; display: block; }
 
 /* pose sheet */
-h2 { font-family: var(--display); font-weight: 500; font-size: 1.6rem; margin: 0 0 16px; }
+h2 { font-family: var(--display); font-weight: 500; font-size: 1.6rem; margin: 0 0 6px; }
+.sub { margin: 0 0 16px; color: var(--mute); max-width: 60ch; }
+h2 + .grid { margin-top: 16px; }
+.box { fill: #c79a58; stroke: var(--cream); stroke-width: 30; stroke-linejoin: round; }
+.box2 { fill: #a87c40; stroke: var(--cream); stroke-width: 30; stroke-linejoin: round; }
+.sign { fill: var(--cream); }
+.signtxt { fill: var(--navy); font-family: var(--display); font-weight: 600; }
 .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .card { --fill: var(--navy); background: var(--navy); border-radius: 18px; padding: 12px 12px 16px; display: grid; gap: 6px; align-content: start; }
 .card svg { width: 100%; height: auto; aspect-ratio: 1; display: block; max-width: 100%; }
@@ -218,7 +224,13 @@ svg * { transform-box: view-box; }
   </section>
 
   <section>
-    <h2>Poses</h2>
+    <h2>Positions</h2>
+    <p class="sub">Still drawings of the cat in different positions, for stickers, slides and the website.</p>
+    <div class="grid" id="positions"></div>
+  </section>
+
+  <section>
+    <h2>Animations</h2>
     <div class="grid" id="grid"></div>
   </section>
 </main>
@@ -232,20 +244,21 @@ const EYES = {
   happy: `<path class="ln" d="M388 438 Q412 392 438 442"/><path class="ln" d="M515 498 Q566 410 620 502"/>`,
 };
 
-function cat({ eyes = 'logo', shadow = true } = {}) {
+function cat({ eyes = 'logo', shadow = true, t = {}, under = '' } = {}) {
+  const st = k => t[k] ? ` style="transform:${t[k]};${t[k + 'O'] ? 'transform-origin:' + t[k + 'O'] : ''}"` : '';
   return `
   ${shadow ? `<ellipse class="shadow" cx="560" cy="880" rx="420" ry="30"/>` : ''}
-  <g class="rig">
+  <g class="rig"${st('rig')}>
     <path class="body-fill" d="M285 32 L432 102 L675 15 L972 165 L972 580 L605 715 L333 557 L334 178 Z"/>
     <path class="lid" d="M440 112 L675 40 L935 180 L818 226 L812 140 L780 133 Z"/>
-    <g class="ear"><path class="ln" d="M334 178 L285 32 Q392 28 432 102"/></g>
+    <g class="ear"${st('ear')}><path class="ln" d="M334 178 L285 32 Q392 28 432 102"/></g>
     <path class="ln" d="M334 178 L331 552 L125 625"/>
     <path class="ln" d="M432 102 L675 15 L972 165 L972 580 L385 822"/>
     <path class="ln" d="M334 552 L608 700"/>
     <path class="ln" d="M820 248 L958 200"/>
-    <g class="curlA"><path class="ln" d="M125 625 C125 560 105 500 70 497 C35 495 22 545 25 575 C28 605 40 630 58 645"/></g>
-    <g class="curlB"><path class="ln" d="M385 822 C385 760 365 702 330 700 C290 700 275 745 278 770 C282 800 300 820 318 832"/></g>
-    <g class="brow"><path class="ln" d="M578 263 C650 195 740 150 808 138"/></g>
+    ${under}<g class="curlA"${st('curlA')}><path class="ln" d="M125 625 C125 560 105 500 70 497 C35 495 22 545 25 575 C28 605 40 630 58 645"/></g>
+    <g class="curlB"${st('curlB')}><path class="ln" d="M385 822 C385 760 365 702 330 700 C290 700 275 745 278 770 C282 800 300 820 318 832"/></g>
+    <g class="brow"${st('brow')}><path class="ln" d="M578 263 C650 195 740 150 808 138"/></g>
     <path class="solid" d="M786 140 L827 136 L816 232 L838 268 L840 365 L778 383 L773 285 Z"/>
     <path class="solid" d="M786 507 L838 492 L845 610 L800 628 L790 620 Z"/>
     <g class="eyes-track"><g class="eyes">${EYES[eyes]}</g></g>
@@ -311,6 +324,48 @@ const POSES = [
 
 document.getElementById('grid').innerHTML = POSES.map(p => `
   <article class="card p-${p.id}">
+    ${svg(p.art, 'Box cat: ' + p.name)}
+    <h3>${p.name}</h3>
+    <p>${p.note}</p>
+  </article>`).join('');
+
+
+const books = `<rect x="150" y="690" width="760" height="70" rx="14" fill="#3f78d8" stroke="var(--cream)" stroke-width="24"/>
+  <rect x="200" y="760" width="700" height="70" rx="14" fill="var(--gold)" stroke="var(--cream)" stroke-width="24"/>
+  <rect x="120" y="830" width="800" height="70" rx="14" fill="#d9677f" stroke="var(--cream)" stroke-width="24"/>`;
+const mini = (x, y, sc, opts = {}, flip = false) => `<g transform="translate(${x} ${y}) scale(${flip ? -sc : sc} ${sc})">${cat({ shadow: false, ...opts })}</g>`;
+
+const POSITIONS = [
+  { name: 'Standing tall', note: 'Up on its back curl, front paw raised.',
+    art: cat({ t: { rig: 'translate(90px,10px) rotate(-12deg)', rigO: '385px 822px', curlA: 'rotate(-40deg)' } }) },
+  { name: 'Loaf', note: 'Settled down flat, eyes closed.',
+    art: cat({ eyes: 'closed', t: { rig: 'scale(1.12,.8)', rigO: '560px 860px', ear: 'rotate(-10deg)' } }) },
+  { name: 'Lying on its side', note: 'Tipped over for a nap, curls in the air.',
+    art: `<ellipse class="shadow" cx="500" cy="960" rx="460" ry="30"/>` + cat({ eyes: 'closed', shadow: false, t: { rig: 'translate(20px,40px) rotate(90deg)', rigO: '500px 430px' } }) },
+  { name: 'Belly up', note: 'Upside down and happy about it.',
+    art: `<ellipse class="shadow" cx="500" cy="900" rx="440" ry="30"/>` + cat({ eyes: 'happy', shadow: false, t: { rig: 'rotate(180deg)', rigO: '500px 430px' } }) },
+  { name: 'Facing left', note: 'The same cat, turned the other way.',
+    art: cat({ t: { rig: 'scale(-1,1)', rigO: '530px 430px' } }) },
+  { name: 'Balancing', note: 'Tipped onto one corner, curls out for balance.',
+    art: `<ellipse class="shadow" cx="520" cy="900" rx="260" ry="26"/>` + cat({ shadow: false, t: { rig: 'translate(-110px,150px) rotate(22deg)', rigO: '605px 715px', curlA: 'rotate(-45deg)', curlB: 'rotate(30deg)' } }) },
+  { name: 'Hug', note: 'Holding a heart with its front curl.',
+    art: cat({ eyes: 'happy', under: heart(170, 610, 150), t: { curlA: 'translate(40px,-40px) rotate(-20deg)' } }) },
+  { name: 'Holding a sign', note: 'Ready for the club fair.',
+    art: cat({ under: `<path class="ln" d="M170 30 L120 620"/>`, t: { curlA: 'rotate(-12deg)' } }) +
+      `<rect class="sign" x="-60" y="-150" width="540" height="180" rx="26"/><text class="signtxt" x="210" y="-28" font-size="96" text-anchor="middle">HamApps</text>` },
+  { name: 'On a book stack', note: 'Sitting on three textbooks.',
+    art: books + mini(110, 50, .74) },
+  { name: 'In a box', note: 'A box cat sitting in a box.',
+    art: mini(120, 0, .78) + `<path class="box2" d="M140 520 L40 420 L300 380 L380 500 Z"/><path class="box2" d="M880 500 L1000 400 L760 380 L700 480 Z"/>
+      <path class="box" d="M140 520 L880 500 L860 900 L170 920 Z"/>` },
+  { name: 'Stacked', note: 'Three box cats stacked like crates.',
+    art: mini(40, 520, .5) + mini(520, 520, .5, { eyes: 'happy' }) + mini(280, 175, .5, { eyes: 'closed' }) },
+  { name: 'With a kitten', note: 'A grown box cat and a little one.',
+    art: mini(-40, 180, .72) + mini(1070, 560, .38, { eyes: 'happy' }, true) },
+];
+
+document.getElementById('positions').innerHTML = POSITIONS.map(p => `
+  <article class="card">
     ${svg(p.art, 'Box cat: ' + p.name)}
     <h3>${p.name}</h3>
     <p>${p.note}</p>
