@@ -903,6 +903,33 @@ a {
   font-size: 1rem;
 }
 
+.member-roles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.member-role {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+  border-top: 1px solid var(--light-mid);
+}
+
+.member-role:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.member-role .member-position {
+  font-size: 0.98rem;
+}
+
+.member-role .member-title {
+  font-size: 0.9rem;
+}
+
 .member-links {
   display: flex;
   gap: 14px;

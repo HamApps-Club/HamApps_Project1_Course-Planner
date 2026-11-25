@@ -155,8 +155,13 @@ function renderMembers() {
             <div class="member-portrait">${avatar(m)}${g.layout === 'compact' ? memberLinks(m) : ''}</div>
             <div class="member-content">
               <span class="member-name">${esc(m.name)}${m.year ? ` <span class="member-year">'${esc(m.year)}</span>` : ''}</span>
-              ${m.position ? `<span class="member-position">${esc(m.position)}</span>` : ''}
-              <span class="member-title">${esc(m.title)}</span>
+              ${
+                m.leadRoles
+                  ? `<div class="member-roles">${m.leadRoles
+                      .map((r) => `<div class="member-role"><span class="member-position">${esc(r.position)}</span><span class="member-title">${esc(r.title)}</span></div>`)
+                      .join('')}</div>`
+                  : `${m.position ? `<span class="member-position">${esc(m.position)}</span>` : ''}<span class="member-title">${esc(m.title)}</span>`
+              }
               ${g.layout === 'large' ? memberLinks(m) : ''}
             </div>
           </li>`
