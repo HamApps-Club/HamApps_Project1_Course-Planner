@@ -1,5 +1,6 @@
 import { CATEGORIES, CONTACT_EMAIL, GROUPS, MEMBERS, ROLES } from './data.js'
 import { mountBoxCat } from './boxcat.js'
+import { mountBoxCatBg } from './boxcat-bg.js'
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const esc = (s) =>
@@ -8,6 +9,9 @@ const esc = (s) =>
 /* ---------- hero mascot ---------- */
 const heroStage = document.getElementById('hero-logo-stage')
 if (heroStage) mountBoxCat(heroStage)
+
+const heroBg = document.getElementById('hero-bg')
+if (heroBg) mountBoxCatBg(heroBg)
 
 
 /* ---------- smooth scroll buttons ---------- */
