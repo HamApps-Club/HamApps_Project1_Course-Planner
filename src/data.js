@@ -61,8 +61,8 @@ export const GROUPS = [
 export const MEMBERS = [
   { name: 'Brandon Niles Taylor', year: '28', group: 'Board', position: 'President', title: 'PM Lead & Tech Lead', github: 'brandonnilestaylor', roles: ['Board', 'Product Management', 'Engineering', 'Infrastructure'] },
   { name: 'Zhuo (Philip) Li', year: '29', group: 'Board', position: 'Vice President', title: 'PM Lead & Tech Lead', github: 'flp-lab', roles: ['Board', 'Product Management', 'Engineering', 'Design'] },
-  { name: 'Haiqi Lyu', year: '29', group: 'Board', position: 'Secretary', title: 'Graphic Designer', roles: ['Board', 'Design'] },
-  { name: 'Maung Thein Nyunt', year: '28', group: 'Board', position: 'Treasurer', title: 'Beta Tester', roles: ['Board'] },
+  { name: 'Haiqi Lyu', year: '29', group: 'Board', position: 'Treasurer', title: 'Graphic Designer', roles: ['Board', 'Design'] },
+  { name: 'Maung Thein Nyunt', year: '28', group: 'Board', position: 'Secretary', title: 'Beta Tester', roles: ['Board'] },
   { name: 'TBD', group: 'Team Leads', position: 'PM Lead', title: 'Product Manager', roles: ['Product Management'] },
   { name: 'TBD', group: 'Team Leads', position: 'Tech Lead', title: 'Software Developer', roles: ['Engineering'] },
   { name: 'TBD', group: 'Team Leads', position: 'Infrastructure Lead', title: 'Systems & Deployment', roles: ['Infrastructure'] },
