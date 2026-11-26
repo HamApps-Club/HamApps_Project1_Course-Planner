@@ -1,20 +1,27 @@
 # HamApps homepage
 
-The homepage for HamApps, a student-run club that builds apps for the Hamilton College community. It lives at **[hamapps.dev](https://hamapps.dev)**. The layout follows the [TigerApps](https://tigerapps.org) homepage: a hero with floating shapes, color-coded app categories, a "Build with us" section and a filterable team roster.
+The homepage for HamApps, a student-run club that builds apps for the Hamilton College community. It lives at **[hamapps.dev](https://hamapps.dev)** (`www.hamapps.dev` redirects there).
 
-> **Status: in progress.** The Instagram link and team roster are placeholders. The two app cards link to Hamilton Scheduler and Hameats. See [HANDOFF.md](HANDOFF.md) for the current Feature 1 status and next steps.
+One page with four parts:
+
+- **Hero:** the animated box-cat mascot (click it to make it jump) over falling box-cats, the club's email (click to copy) and a link to the GitHub organization.
+- **Our Apps:** a card for each app, grouped by color-coded category, linking to the live site and (when public) its code.
+- **Create the Next HamApp:** how to build with the club. The **Submit an App** button is a placeholder for now.
+- **Meet the Team:** the roster, grouped into Board, Team Leads and Members, with role filters.
+
+The header's Instagram link is also a placeholder.
 
 ## How HamApps is organized
 
-Each app is its own project with its own repo in the [HamAppsDev](https://github.com/HamAppsDev) organization and its own subdomain of `hamapps.dev`. This homepage only links to them.
+Each app is its own project with its own repo in the [HamAppsDev](https://github.com/HamAppsDev) organization and its own address. This homepage only links to them.
 
 | Site | Address | Repo |
 | --- | --- | --- |
 | Homepage (this repo) | [hamapps.dev](https://hamapps.dev) | [HamAppsDev/homepage](https://github.com/HamAppsDev/homepage) |
 | Hamilton Scheduler | [scheduler.hamapps.dev](https://scheduler.hamapps.dev) | [HamAppsDev/HamiltonScheduler](https://github.com/HamAppsDev/HamiltonScheduler) |
-| Hameats | [hameats.app](https://hameats.app) | Separate app; source repository is not linked here |
+| HamEats | [hameats.app](https://www.hameats.app) | [HamAppsDev/hameats](https://github.com/HamAppsDev/hameats) |
 
-To add a new app: create its repo in the organization, deploy it, point a new `<name>.hamapps.dev` record in Cloudflare DNS at the host, then add a card for it in `src/data.js`.
+To add a new app: create its repo in the organization, deploy it (a `<name>.hamapps.dev` address is a DNS record in Cloudflare), then add a card for it in `src/data.js`.
 
 ## Edit the content
 
@@ -22,13 +29,13 @@ Almost everything on the page comes from **`src/data.js`**:
 
 | What | Where in `src/data.js` |
 | --- | --- |
-| Contact email | `CONTACT_EMAIL` |
-| Apps and categories | `CATEGORIES` (name, color, apps). Each app has `open` (live link) and `code` (GitHub link). |
+| Contact email (hero, Develop section, footer) | `CONTACT_EMAIL` |
+| Apps and categories | `CATEGORIES`: each category has a `name`, `color` and `apps`. Each app has `description`, `open` (live link), `code` (GitHub link, or `null` to hide it), `credits` and `thumb` (which built-in illustration to draw). |
 | Team filter pills | `ROLES` |
-| Team members | `MEMBERS`. Put photos in `public/` and set `photo: '/name.jpg'`. |
+| Team groups and their order | `GROUPS` (`layout: 'large'` for big cards, like the Board) |
+| Team members | `MEMBERS`: `name`, `year`, `group`, `position`, `title`, `roles`, and optionally `github` (username) and `photo` (put the image in `public/` and set `photo: '/name.jpg'`). |
 
-The Instagram link is in `index.html` (search for `insta`).
-The current “Our Apps” section contains the two linked projects above.
+Page text, navigation and the Instagram link are in `index.html`; colors and layout in `src/style.css`.
 
 ## Run it locally
 
@@ -42,13 +49,15 @@ npm install
 npm run dev
 ```
 
-Then open the address it prints, usually http://localhost:5173.
+Then open the address it prints, usually http://localhost:5173. Run `npm run build` before pushing to check the production build.
 
-For a quick local preview without Node.js, run `python3 preview.py` in this folder and open http://127.0.0.1:8765. This serves the same image paths that Vite serves from `public/`.
+Without Node.js, `python3 preview.py` serves the page at http://127.0.0.1:8765 (no build checks).
 
-## Deploy
+## How it's deployed
 
-On Vercel, import the repo with the **Vite** framework preset. The build command is `npm run build`, and the output folder is `dist`.
+Every push to `main` runs `.github/workflows/deploy.yml`: it builds the site and runs `npx sst deploy --stage production` (`sst.config.ts`), which puts the built site in a private S3 bucket behind CloudFront at hamapps.dev, with DNS in Cloudflare. GitHub signs in to AWS with the role from `infra/github-deploy-role.yaml` (us-east-2), so no AWS keys are stored in GitHub. The workflow needs the repository variable `AWS_DEPLOY_ROLE_ARN` and the secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_DEFAULT_ACCOUNT_ID` (Settings → Secrets and variables → Actions).
+
+To deploy by hand: put those two Cloudflare values in `.env` (git-ignored), run `eval "$(aws configure export-credentials --profile hamapps --format env)"`, then `npx sst deploy --stage production`.
 
 ## Files
 
@@ -56,12 +65,11 @@ On Vercel, import the repo with the **Vite** framework preset. The build command
 | --- | --- |
 | `index.html` | Page structure: header, hero, sections, footer |
 | `src/data.js` | All editable content |
-| `src/main.js` | Renders apps and team, email copy chip, and team filters |
+| `src/main.js` | Renders the apps and team, the email copy chip and the team filters |
+| `src/boxcat.js` | The animated mascot in the hero |
+| `src/boxcat-bg.js` | The falling box-cats behind the hero |
+| `src/develop-art.js` | The box-cat illustrations on the Develop cards |
 | `src/style.css` | All styles |
-| `public/hamapps-logo.png` | Navy and gold HamApps logo on transparent background for the header |
-| `public/hamapps-logo-on-navy.png` | Ivory and gold HamApps logo on navy for the browser tab icon |
-| `preview.py` | Local homepage preview without Node.js |
-
-The Feature 1 homepage uses a pale blue-gray header and Our Apps background, black headings, blue underlines, and navy and muted gold accents.
-
-The homepage shows the club contact address in the hero and footer. Set it once with `CONTACT_EMAIL` in `src/data.js`.
+| `public/` | Logos, icons, `robots.txt`, `sitemap.xml`, and `boxcat.html` (the standalone mascot demo the animations came from) |
+| `sst.config.ts`, `infra/` | AWS hosting and the GitHub deploy role |
+| `preview.py` | Local preview without Node.js |

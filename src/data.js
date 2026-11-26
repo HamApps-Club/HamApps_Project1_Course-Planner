@@ -14,7 +14,7 @@ export const CATEGORIES = [
       {
         name: 'Hamilton Scheduler',
         description:
-          'Search Hamilton College courses, read ratings and comments, and build your weekly schedule with conflict checking.',
+          'Search Hamilton College courses, build up to three weekly schedules a semester with time-conflict checking, and add them to your calendar.',
         open: 'https://scheduler.hamapps.dev/',
         code: `${ORG_URL}/HamiltonScheduler`,
         credits: 'By the HamApps team.',
@@ -28,7 +28,7 @@ export const CATEGORIES = [
     apps: [
       {
         name: 'Hameats',
-        description: 'Explore campus dining with Hameats.',
+        description: 'Today\'s menus and hours for every Hamilton dining hall and cafe, on one page.',
         open: 'https://hameats.app',
         code: null,
         credits: 'For the Hamilton community.',

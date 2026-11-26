@@ -1,54 +1,19 @@
 # HamApps homepage handoff
 
-Updated November 24, 2026. This handoff covers the **homepage** repository and the `Feature1_Homepage-design` branch. Hamilton Scheduler is a separate project and repository.
+Updated November 26, 2026.
 
 ## Where the work stands
 
-- Repository: [HamAppsDev/homepage](https://github.com/HamAppsDev/homepage)
-- Working branch: `Feature1_Homepage-design`
-- Latest homepage change before this document: `a68aa82` — light header, black headings, blue underlines, and the two live app cards.
-- The branch was pushed to GitHub. [Vercel reported a successful branch deployment](https://vercel.com/ham-apps/ham-apps-project1-course-planner/F8NNbb5SsQhs4du7DNjJ2TNmZ5Y7). The Vercel project still has an older “course-planner” name, although this repository is the homepage. Open the deployment and select **Visit** to see its preview. The production URL may show `main` until changes are reviewed and merged.
-- The homepage is a public directory for club projects. It does not implement Hamilton sign-in; each project handles its own access rules.
+- The site is live at [hamapps.dev](https://hamapps.dev), deployed from `main` to AWS on every push (see "How it's deployed" in [README.md](README.md)). It is no longer on Vercel.
+- **Our Apps** shows Hamilton Scheduler (Course Planning) and HamEats (Campus Life). App pictures are illustrations drawn in `src/main.js`, not screenshots.
+- **Meet the Team** lists the Board (President, Vice President, Treasurer, Secretary) and one member. All Team Lead spots are TBD.
+- The homepage is a public directory of club projects. It has no sign-in; each app handles its own.
 
-## Current page
+## Open work
 
-The site is a small Vite project using HTML, CSS, and JavaScript. `index.html` contains the page sections; `src/style.css` controls the appearance; `src/data.js` contains the app cards, contact address, roles, and placeholder roster; `src/main.js` renders the app and team data and handles the email copy button and role filters.
+1. Add the real Instagram link (`index.html`, search for `insta`) and a destination for **Submit an App** (also in `index.html`).
+2. Fill in Team Leads in `src/data.js` once people are chosen. Add names, roles and photos only with each member's consent.
+3. Replace the app illustrations with screenshots if the app teams want them.
+4. The older branches (`Draft1`, `Draft2`, `Draft3`, `art`, `laughing-lovelace-su929w`) hold earlier design drafts; delete them once nobody needs them.
 
-The current visual direction uses a pale blue-gray header and Our Apps background (`#F5F7FB`), near-black headings (`#171B22`), and blue (`#173A78`) for heading underlines, links, and app-card hover borders. The header displays the transparent navy-and-gold club logo. The browser tab uses the ivory-and-gold logo on a navy square, so it remains visible at small sizes.
-
-**Our Apps** currently shows only:
-
-| Category | App | Destination |
-| --- | --- | --- |
-| Course Planning | Hamilton Scheduler | <https://scheduler.hamapps.dev/> |
-| Campus Life | Hameats | <https://www.hameats.app/> |
-
-The former future-ideas list was removed from this branch. App thumbnails are illustrations generated in `src/main.js`, not screenshots of the live apps.
-
-## Run and edit locally
-
-Use Node.js 20 or newer. In a new workspace, clone the repository first; in an existing clone, start with `cd homepage`:
-
-```bash
-git clone https://github.com/HamAppsDev/homepage.git
-cd homepage
-git switch Feature1_Homepage-design
-npm ci
-npm run dev
-```
-
-Open the local address Vite prints, usually <http://localhost:5173/>. Without Node.js, run `python3 preview.py` from this directory and open <http://127.0.0.1:8765/>. This fallback serves the page but does not run Vite's build checks.
-
-To change an app card, edit `CATEGORIES` in `src/data.js`. `open` is the live URL; `code` is an optional source-code URL; `thumb` selects a placeholder illustration. The contact address is `CONTACT_EMAIL` in the same file. Edit page copy and navigation in `index.html`, and colors/layout in `src/style.css`.
-
-Before sharing a change, run `npm run build` and check the desktop and mobile layouts. In the previous workspace, `npm` was unavailable, so the local build was not run; the JavaScript syntax and links were checked, and Vercel reported the deployment as successful.
-
-## Open work and decisions
-
-1. Review the Feature 1 design on desktop and mobile, including the pale header, heading contrast, logo size, and both app cards.
-2. Replace the placeholder team roster in `src/data.js` only after members provide their names, roles, and consent for any photos. The Instagram, “View Data Sources,” and “Submit an App” links are still placeholders.
-3. Replace the app thumbnail illustrations with approved screenshots if the teams want product previews.
-4. Review the Develop section's example about benefiting a local nonprofit against the club's current constitution, which centers projects on the Hamilton College community.
-5. When the team agrees on the design, open a pull request from `Feature1_Homepage-design` to `main`. The HamApps constitution requires a second member to review changes to main code before merge, or the Tech Lead when a project has only one member. Check the production site after the merge/deployment.
-
-Keep the current constitution and any deployment account access in club-owned shared records. Do not put passwords, tokens, or student data in this repository.
+Changes to `main` need a second member's review before merging (the Tech Lead when a project has only one member), per the HamApps constitution. Keep passwords, tokens and student data out of this repository.
