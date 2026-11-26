@@ -6,12 +6,12 @@ The homepage for HamApps, a student-run club that builds apps for the Hamilton C
 
 ## How HamApps is organized
 
-Each app is its own project with its own repo in the [HamApps-Club](https://github.com/HamApps-Club) organization and its own subdomain of `hamapps.dev`. This homepage only links to them.
+Each app is its own project with its own repo in the [HamAppsDev](https://github.com/HamAppsDev) organization and its own subdomain of `hamapps.dev`. This homepage only links to them.
 
 | Site | Address | Repo |
 | --- | --- | --- |
-| Homepage (this repo) | [hamapps.dev](https://hamapps.dev) | [HamApps-Club/homepage](https://github.com/HamApps-Club/homepage) |
-| Hamilton Scheduler | [scheduler.hamapps.dev](https://scheduler.hamapps.dev) | [HamApps-Club/HamiltonScheduler](https://github.com/HamApps-Club/HamiltonScheduler) |
+| Homepage (this repo) | [hamapps.dev](https://hamapps.dev) | [HamAppsDev/homepage](https://github.com/HamAppsDev/homepage) |
+| Hamilton Scheduler | [scheduler.hamapps.dev](https://scheduler.hamapps.dev) | [HamAppsDev/HamiltonScheduler](https://github.com/HamAppsDev/HamiltonScheduler) |
 | Hameats | [hameats.app](https://hameats.app) | Separate app; source repository is not linked here |
 
 To add a new app: create its repo in the organization, deploy it, point a new `<name>.hamapps.dev` record in Cloudflare DNS at the host, then add a card for it in `src/data.js`.

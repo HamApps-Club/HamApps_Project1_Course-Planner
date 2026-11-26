@@ -4,7 +4,7 @@ Updated November 24, 2026. This handoff covers the **homepage** repository and t
 
 ## Where the work stands
 
-- Repository: [HamApps-Club/homepage](https://github.com/HamApps-Club/homepage)
+- Repository: [HamAppsDev/homepage](https://github.com/HamAppsDev/homepage)
 - Working branch: `Feature1_Homepage-design`
 - Latest homepage change before this document: `a68aa82` — light header, black headings, blue underlines, and the two live app cards.
 - The branch was pushed to GitHub. [Vercel reported a successful branch deployment](https://vercel.com/ham-apps/ham-apps-project1-course-planner/F8NNbb5SsQhs4du7DNjJ2TNmZ5Y7). The Vercel project still has an older “course-planner” name, although this repository is the homepage. Open the deployment and select **Visit** to see its preview. The production URL may show `main` until changes are reviewed and merged.
@@ -30,7 +30,7 @@ The former future-ideas list was removed from this branch. App thumbnails are il
 Use Node.js 20 or newer. In a new workspace, clone the repository first; in an existing clone, start with `cd homepage`:
 
 ```bash
-git clone https://github.com/HamApps-Club/homepage.git
+git clone https://github.com/HamAppsDev/homepage.git
 cd homepage
 git switch Feature1_Homepage-design
 npm ci

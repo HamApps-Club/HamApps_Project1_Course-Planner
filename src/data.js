@@ -2,7 +2,7 @@
 
 export const CONTACT_EMAIL = 'it.admin@hamapps.dev'
 
-const ORG_URL = 'https://github.com/HamApps-Club'
+const ORG_URL = 'https://github.com/HamAppsDev'
 
 // Category dots use shades of the club's blue palette.
 // `thumb` picks a built-in placeholder picture (see thumbs in main.js) until real screenshots exist.
