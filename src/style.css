@@ -842,13 +842,13 @@ a {
 
 .member-groups {
   display: grid;
-  gap: 56px;
+  gap: 40px;
 }
 
 .group-head h4 {
   margin: 0;
   color: var(--heading);
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   font-weight: 700;
 }
 
@@ -857,11 +857,11 @@ a {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 32px 24px;
+  gap: 24px 18px;
 }
 
 .member-grid.large {
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 }
 
 .member.is-tbd .member-name,
@@ -876,14 +876,14 @@ a {
 
 .member {
   display: flex;
-  gap: 16px;
+  gap: 12px;
 }
 
 .member-grid.large .member {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .member-portrait {
@@ -891,20 +891,20 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .avatar {
-  width: 88px;
-  height: 88px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
 }
 
 .member-grid.large .avatar {
-  width: 120px;
-  height: 120px;
+  width: 84px;
+  height: 84px;
 }
 
 .avatar-empty {
@@ -922,18 +922,18 @@ a {
 .member-content {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   min-width: 0;
-  padding-top: 4px;
+  padding-top: 2px;
 }
 
 .member-name {
-  font-size: 1.2rem;
+  font-size: 0.98rem;
   font-weight: 700;
 }
 
 .member-year {
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 500;
   color: var(--gray);
 }
@@ -941,25 +941,25 @@ a {
 .member-position {
   color: var(--blue);
   font-weight: 700;
-  font-size: 1.02rem;
+  font-size: 0.84rem;
 }
 
 .member-title {
   color: var(--gray-dark);
-  font-size: 1rem;
+  font-size: 0.82rem;
 }
 
 .member-roles {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 2px;
+  gap: 7px;
+  margin-top: 1px;
 }
 
 .member-role {
   display: flex;
   flex-direction: column;
-  padding-top: 8px;
+  padding-top: 6px;
   border-top: 1px solid var(--light-mid);
 }
 
@@ -969,11 +969,11 @@ a {
 }
 
 .member-role .member-position {
-  font-size: 0.98rem;
+  font-size: 0.82rem;
 }
 
 .member-role .member-title {
-  font-size: 0.9rem;
+  font-size: 0.76rem;
 }
 
 .member-links {
@@ -1078,8 +1078,8 @@ a {
   }
 
   .member-grid.large .avatar {
-    width: 96px;
-    height: 96px;
+    width: 72px;
+    height: 72px;
   }
 
   .app-card {
