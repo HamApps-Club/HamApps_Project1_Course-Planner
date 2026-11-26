@@ -1,8 +1,22 @@
 import { CATEGORIES, CONTACT_EMAIL, GROUPS, MEMBERS, ROLES } from './data.js'
+import { mountBoxCat } from './boxcat.js'
+import { mountBoxCatBg } from './boxcat-bg.js'
+import { renderDevelopCards } from './develop-art.js'
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const esc = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
+
+/* ---------- hero mascot ---------- */
+const heroStage = document.getElementById('hero-logo-stage')
+if (heroStage) mountBoxCat(heroStage)
+
+const heroBg = document.getElementById('hero-bg')
+if (heroBg) mountBoxCatBg(heroBg)
+
+const developCards = document.getElementById('develop-cards')
+if (developCards) renderDevelopCards(developCards)
+
 
 /* ---------- smooth scroll buttons ---------- */
 document.addEventListener('click', (e) => {
@@ -149,13 +163,19 @@ function renderMembers() {
           .map((m) => {
             const id = MEMBERS.indexOf(m)
             n++
+            const isTbd = m.name === 'TBD'
             return `
-          <li class="member" style="view-transition-name: member-${id}">
+          <li class="member${isTbd ? ' is-tbd' : ''}" style="view-transition-name: member-${id}">
             <div class="member-portrait">${avatar(m)}${g.layout === 'compact' ? memberLinks(m) : ''}</div>
             <div class="member-content">
-              <span class="member-name">${esc(m.name)} <span class="member-year">'${esc(m.year)}</span></span>
-              ${m.position ? `<span class="member-position">${esc(m.position)}</span>` : ''}
-              <span class="member-title">${esc(m.title)}</span>
+              <span class="member-name">${esc(m.name)}${m.year ? ` <span class="member-year">'${esc(m.year)}</span>` : ''}</span>
+              ${
+                m.leadRoles
+                  ? `<div class="member-roles">${m.leadRoles
+                      .map((r) => `<div class="member-role"><span class="member-position">${esc(r.position)}</span><span class="member-title">${esc(r.title)}</span></div>`)
+                      .join('')}</div>`
+                  : `${m.position ? `<span class="member-position">${esc(m.position)}</span>` : ''}<span class="member-title">${esc(m.title)}</span>`
+              }
               ${g.layout === 'large' ? memberLinks(m) : ''}
             </div>
           </li>`

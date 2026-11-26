@@ -39,7 +39,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/style.css" />
@@ -68,14 +68,10 @@
     </header>
 
     <!-- Hero -->
-    <section id="hero" class="hero">
-      <div class="hero-blob hb-1" aria-hidden="true"></div>
-      <div class="hero-blob hb-2" aria-hidden="true"></div>
-      <div class="hero-blob hb-3" aria-hidden="true"></div>
-      <div class="hero-blob hb-4" aria-hidden="true"></div>
-      <div class="hero-blob hb-5" aria-hidden="true"></div>
+    <section id="hero" class="hero hero-dark">
+      <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
       <div class="cont hero-inner">
-        <div class="hero-logo fade-up" aria-hidden="true"></div>
+        <button type="button" class="hero-logo fade-up" id="hero-logo-stage" aria-label="HamApps mascot. Click to make it jump."></button>
         <h1 class="hero-title fade-up d1">
           <span class="accent-text">Apps</span> for <span class="underlined">Hamilton<svg class="squiggle" viewBox="0 0 400 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 12 C 80 4, 160 8, 230 9 S 360 12, 396 7" /></svg></span>
         </h1>
@@ -95,11 +91,15 @@
             </button>
             <span id="copy-tooltip" class="tooltip" role="status">Copied!</span>
           </div>
+          <a class="github-chip" href="https://github.com/HamApps-Club" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+            <span>GitHub</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <div class="wave" style="background: #ffffff">
+    <div class="wave" style="background: #0b2b5a">
       <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
         <path d="M0,50 C360,100 720,0 1080,50 C1260,75 1380,75 1440,50 L1440,100 L0,100 Z" fill="#F5F7FB" />
       </svg>
@@ -129,48 +129,12 @@
         <p class="eyebrow eyebrow-gold">Build with us</p>
         <h2><span class="accent-underline">Create the Next HamApp</span></h2>
         <p class="lede">
-          HamApps hosts and promotes student-developed applications for the Hamilton College community.
+          HamApps hosts and promotes student-developed applications for the Hamilton community. We handle all costs, maintenance, and marketing.
         </p>
 
-        <div class="steps">
-          <div class="step">
-            <div class="step-icon tint-gold">
-              <svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">
-                <path d="M8 26 L32 12 L56 26 Z" fill="#E3C777" stroke="#173A78" stroke-width="2.5" stroke-linejoin="round" />
-                <rect x="12" y="26" width="40" height="26" fill="#E7EEF8" stroke="#173A78" stroke-width="2.5" />
-                <rect x="28" y="38" width="8" height="14" fill="#173A78" stroke="#173A78" stroke-width="2.5" />
-                <rect x="17" y="31" width="6" height="6" fill="#fff" stroke="#173A78" stroke-width="2" />
-                <rect x="41" y="31" width="6" height="6" fill="#fff" stroke="#173A78" stroke-width="2" />
-                <path d="M4 54 H60" stroke="#173A78" stroke-width="2.5" stroke-linecap="round" />
-              </svg>
-            </div>
-            <p>Support student life on campus or benefit a local non-profit</p>
-          </div>
-          <div class="step">
-            <div class="step-icon tint-blue">
-              <svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">
-                <path d="M32 6 l5 6 8-2 1 8 7 4-4 7 4 7-7 4-1 8-8-2-5 6-5-6-8 2-1-8-7-4 4-7-4-7 7-4 1-8 8 2z" fill="#E7EEF8" stroke="#173A78" stroke-width="2.5" stroke-linejoin="round" />
-                <circle cx="32" cy="32" r="12" fill="#fff" stroke="#173A78" stroke-width="2.5" />
-                <path d="M26 32 l4 4 8-8" fill="none" stroke="#D0AD55" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </div>
-            <p>Be fully functional with no major bugs</p>
-          </div>
-          <div class="step">
-            <div class="step-icon tint-blue">
-              <svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">
-                <rect x="8" y="8" width="48" height="36" rx="5" fill="#E7EEF8" stroke="#173A78" stroke-width="2.5" />
-                <path d="M8 16 H56" stroke="#173A78" stroke-width="2.5" />
-                <path d="M24 26 l-6 6 6 6 M40 26 l6 6-6 6 M35 23 l-6 18" fill="none" stroke="#173A78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M24 56 H40 M32 44 V56" stroke="#173A78" stroke-width="2.5" stroke-linecap="round" />
-              </svg>
-            </div>
-            <p>Use modern, well-supported programming languages</p>
-          </div>
-        </div>
+        <div class="steps" id="develop-cards"></div>
 
         <div class="develop-cta">
-          <a class="btn btn-outline" href="#" title="Coming soon">View Data Sources</a>
           <a class="btn btn-gold" href="#" title="Coming soon">Submit an App</a>
         </div>
         <p class="muted small-note">Questions? Contact us at <span class="email-text link-blue"></span></p>
@@ -192,7 +156,6 @@
         </div>
         <div id="role-filters" class="role-filters" role="group" aria-label="Filter members by role"></div>
         <div id="member-groups" class="member-groups"></div>
-        <p class="placeholder-note">Placeholder roster. Add real members in <code>src/data.js</code>.</p>
       </div>
     </section>
 

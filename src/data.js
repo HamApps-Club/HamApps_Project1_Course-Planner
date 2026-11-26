@@ -46,6 +46,8 @@ export const ROLES = [
   { name: 'Marketing' },
   { name: 'Outreach' },
   { name: 'Engineering' },
+  { name: 'Infrastructure' },
+  { name: 'Member' },
 ]
 
 // Groups shown in this order. `layout: 'large'` = big centered cards (like the Board).
@@ -55,17 +57,18 @@ export const GROUPS = [
   { name: 'Members', layout: 'compact' },
 ]
 
-// PLACEHOLDER roster. Replace with real members.
-// photo: path to an image in /public (optional) · github: username (optional) · site: URL (optional)
+// Current roster. Team Lead roles are all TBD for now; Board officers are filled in.
 export const MEMBERS = [
-  { name: 'Your Name', year: '28', group: 'Board', position: 'President', title: 'Software Developer', roles: ['Board', 'Engineering'] },
-  { name: 'Your Name', year: '28', group: 'Board', position: 'Vice President', title: 'Designer & Developer', roles: ['Board', 'Design'] },
-  { name: 'Your Name', year: '29', group: 'Board', position: 'Head of Marketing', title: 'Marketer', roles: ['Board', 'Marketing'] },
-  { name: 'Your Name', year: '29', group: 'Board', position: 'Treasurer', title: 'Outreach', roles: ['Board', 'Outreach'] },
-  { name: 'Your Name', year: '29', group: 'Team Leads', position: 'PM Lead', title: 'Product Manager', roles: ['Product Management'] },
-  { name: 'Your Name', year: '28', group: 'Team Leads', position: 'Tech Lead', title: 'Software Developer', roles: ['Engineering'] },
-  { name: 'Your Name', year: '29', group: 'Team Leads', position: 'Design Lead', title: 'Product Designer', roles: ['Design'] },
-  { name: 'Your Name', year: '29', group: 'Members', title: 'Software Developer', roles: ['Engineering'] },
-  { name: 'Your Name', year: '30', group: 'Members', title: 'Software Developer', roles: ['Engineering'] },
-  { name: 'Your Name', year: '30', group: 'Members', title: 'Outreach', roles: ['Outreach'] },
+  { name: 'Brandon Niles Taylor', year: '28', group: 'Board', position: 'President', title: 'PM Lead & Tech Lead', github: 'brandonnilestaylor', roles: ['Board', 'Product Management', 'Engineering', 'Infrastructure'] },
+  { name: 'Zhuo (Philip) Li', year: '29', group: 'Board', position: 'Vice President', title: 'PM Lead & Tech Lead', github: 'flp-lab', roles: ['Board', 'Product Management', 'Engineering', 'Design'] },
+  { name: 'Haiqi Lyu', year: '29', group: 'Board', position: 'Treasurer', title: 'Graphic Designer', roles: ['Board', 'Design'] },
+  { name: 'Maung Thein Nyunt', year: '28', group: 'Board', position: 'Secretary', title: 'Beta Tester', roles: ['Board'] },
+  { name: 'TBD', group: 'Team Leads', position: 'PM Lead', title: 'Product Manager', roles: ['Product Management'] },
+  { name: 'TBD', group: 'Team Leads', position: 'Tech Lead', title: 'Software Developer', roles: ['Engineering'] },
+  { name: 'TBD', group: 'Team Leads', position: 'Infrastructure Lead', title: 'Systems & Deployment', roles: ['Infrastructure'] },
+  { name: 'TBD', group: 'Team Leads', position: 'Design Lead', title: 'Product Designer', roles: ['Design'] },
+  { name: 'TBD', group: 'Team Leads', position: 'Marketing Lead', title: 'Marketer', roles: ['Marketing'] },
+  { name: 'TBD', group: 'Team Leads', position: 'Outreach Lead', title: 'Outreach', roles: ['Outreach'] },
+  { name: 'Jun Seo', year: '27', group: 'Members', title: 'Developer', roles: ['Member'] },
 ]
+
