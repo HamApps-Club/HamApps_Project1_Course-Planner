@@ -1,6 +1,7 @@
 import { CATEGORIES, CONTACT_EMAIL, GROUPS, MEMBERS, ROLES } from './data.js'
 import { mountBoxCat } from './boxcat.js'
 import { mountBoxCatBg } from './boxcat-bg.js'
+import { renderDevelopCards } from './develop-art.js'
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const esc = (s) =>
@@ -12,6 +13,9 @@ if (heroStage) mountBoxCat(heroStage)
 
 const heroBg = document.getElementById('hero-bg')
 if (heroBg) mountBoxCatBg(heroBg)
+
+const developCards = document.getElementById('develop-cards')
+if (developCards) renderDevelopCards(developCards)
 
 
 /* ---------- smooth scroll buttons ---------- */
