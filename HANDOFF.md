@@ -11,7 +11,7 @@ Updated November 26, 2026.
 
 ## Open work
 
-1. Add the real Instagram link (`index.html`, search for `insta`) and a destination for **Submit an App** (also in `index.html`).
+1. Add the real Instagram link (`index.html`, search for `insta`) and a destination for **Join Us** (also in `index.html`).
 2. Add new members in `src/data.js`. Add names, roles and photos only with each member's consent.
 3. Replace the app illustrations with screenshots if the app teams want them.
 4. The older branches (`Draft1`, `Draft2`, `Draft3`, `art`, `laughing-lovelace-su929w`) hold earlier design drafts; delete them once nobody needs them.

@@ -6,7 +6,7 @@ One page with four parts:
 
 - **Hero:** the animated box-cat mascot (click it to make it jump) over falling box-cats, the club's email (click to copy) and a link to the GitHub organization.
 - **Our Apps:** a card for each app, grouped by color-coded category, linking to the live site and (when public) its code.
-- **Create the Next HamApp:** how to build with the club. The **Submit an App** button is a placeholder for now.
+- **Create the Next HamApp:** how to build with the club. The **Join Us** button is a placeholder for now.
 - **Meet the Team:** the roster, grouped into Board and Members.
 
 The header's Instagram link is also a placeholder.
