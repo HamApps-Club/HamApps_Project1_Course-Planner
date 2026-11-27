@@ -15,7 +15,7 @@ export const APPS = [
       'Search Hamilton College courses, build up to three weekly schedules a semester with time-conflict checking, and add them to your calendar.',
     stats: [
       { value: '5x faster', label: 'than student planning' },
-      { value: 'Extremely', label: 'user-friendly' },
+      { value: '100%', label: 'user-friendly' },
     ],
     image: '/apps/scheduler.jpg',
     open: 'https://scheduler.hamapps.dev/',
