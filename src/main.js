@@ -1,4 +1,4 @@
-import { CATEGORIES, CONTACT_EMAIL, GROUPS, MEMBERS, ROLES } from './data.js'
+import { CATEGORIES, CONTACT_EMAIL, GROUPS, MEMBERS } from './data.js'
 import { mountBoxCat } from './boxcat.js'
 import { mountBoxCatBg } from './boxcat-bg.js'
 import { renderDevelopCards } from './develop-art.js'
@@ -116,9 +116,7 @@ const renderCategories = (categories, headingTag) => categories.map(
 appsEl.innerHTML = renderCategories(CATEGORIES, 'h3')
 
 /* ---------- team ---------- */
-const filtersEl = document.getElementById('role-filters')
 const groupsEl = document.getElementById('member-groups')
-let activeRole = 'All'
 
 const initials = (name) =>
   name
@@ -140,20 +138,9 @@ const memberLinks = (m) => {
   return parts.length ? `<div class="member-links">${parts.join('')}</div>` : ''
 }
 
-function renderFilters() {
-  const pills = [{ name: 'All' }, ...ROLES]
-  filtersEl.innerHTML = pills
-    .map(
-      (r) =>
-        `<button type="button" class="role-pill${activeRole === r.name ? ' active' : ''}" aria-pressed="${activeRole === r.name}" data-role="${esc(r.name)}">${esc(r.name)}</button>`,
-    )
-    .join('')
-}
-
 function renderMembers() {
-  let n = 0
   groupsEl.innerHTML = GROUPS.map((g) => {
-    const people = MEMBERS.filter((m) => m.group === g.name && (activeRole === 'All' || m.roles?.includes(activeRole)))
+    const people = MEMBERS.filter((m) => m.group === g.name)
     if (!people.length) return ''
     return `
     <section class="member-group">
@@ -162,7 +149,6 @@ function renderMembers() {
         ${people
           .map((m) => {
             const id = MEMBERS.indexOf(m)
-            n++
             const isTbd = m.name === 'TBD'
             return `
           <li class="member${isTbd ? ' is-tbd' : ''}" style="view-transition-name: member-${id}">
@@ -184,20 +170,6 @@ function renderMembers() {
       </ul>
     </section>`
   }).join('')
-  if (!n) groupsEl.innerHTML = '<p class="placeholder-note">No one in this role yet.</p>'
 }
 
-filtersEl.addEventListener('click', (e) => {
-  const btn = e.target.closest('[data-role]')
-  if (!btn || btn.dataset.role === activeRole) return
-  activeRole = btn.dataset.role
-  const update = () => {
-    renderFilters()
-    renderMembers()
-  }
-  if (document.startViewTransition && !reduceMotion) document.startViewTransition(update)
-  else update()
-})
-
-renderFilters()
 renderMembers()

@@ -823,34 +823,6 @@ a {
 }
 
 /* ---------- team ---------- */
-.role-filters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 48px;
-}
-
-.role-pill {
-  padding: 8px 18px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--blue);
-  background: var(--blue-soft);
-  transition: background 0.2s, color 0.2s, transform 0.2s;
-}
-
-.role-pill:hover {
-  transform: translateY(-1px);
-  background: var(--gold-hover);
-}
-
-.role-pill.active {
-  background: var(--fb-blue-dark);
-  color: #fff;
-}
-
 .member-groups {
   display: grid;
   gap: 40px;
@@ -1001,13 +973,6 @@ a {
 
 ::view-transition-group(*) {
   animation-duration: 0.35s;
-}
-
-.placeholder-note {
-  margin: 40px 0 0;
-  text-align: center;
-  color: var(--gray);
-  font-size: 0.9rem;
 }
 
 /* ---------- footer ---------- */

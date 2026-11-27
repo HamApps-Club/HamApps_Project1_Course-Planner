@@ -7,7 +7,7 @@ One page with four parts:
 - **Hero:** the animated box-cat mascot (click it to make it jump) over falling box-cats, the club's email (click to copy) and a link to the GitHub organization.
 - **Our Apps:** a card for each app, grouped by color-coded category, linking to the live site and (when public) its code.
 - **Create the Next HamApp:** how to build with the club. The **Submit an App** button is a placeholder for now.
-- **Meet the Team:** the roster, grouped into Board, Team Leads and Members, with role filters.
+- **Meet the Team:** the roster, grouped into Board and Members.
 
 The header's Instagram link is also a placeholder.
 
@@ -31,7 +31,6 @@ Almost everything on the page comes from **`src/data.js`**:
 | --- | --- |
 | Contact email (hero, Develop section, footer) | `CONTACT_EMAIL` |
 | Apps and categories | `CATEGORIES`: each category has a `name`, `color` and `apps`. Each app has `description`, `open` (live link), `code` (GitHub link, or `null` to hide it), `credits` and `thumb` (which built-in illustration to draw). |
-| Team filter pills | `ROLES` |
 | Team groups and their order | `GROUPS` (`layout: 'large'` for big cards, like the Board) |
 | Team members | `MEMBERS`: `name`, `year`, `group`, `position`, `title`, `roles`, and optionally `github` (username) and `photo` (put the image in `public/` and set `photo: '/name.jpg'`). |
 
