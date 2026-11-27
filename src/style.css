@@ -574,12 +574,14 @@ a {
 }
 
 /* ---------- apps ---------- */
+/* Card layout follows the Sentient product cards: tag, title, short text, a two-figure
+   stat row, an edge-to-edge picture that fades into the card, then the buttons. */
 .app-cards {
+  --card-bg: #fff;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
-  max-width: 980px;
-  margin: 0 auto;
+  grid-template-columns: repeat(2, minmax(0, 380px));
+  justify-content: center;
+  gap: 24px;
 }
 
 /* Each card spans six shared rows (tag, name, text, stats, screenshot, buttons) so
@@ -590,17 +592,19 @@ a {
   grid-template-rows: subgrid;
   row-gap: 0;
   align-content: start;
-  padding: 32px;
-  background: #fff;
-  border: 2px solid transparent;
-  border-radius: 32px;
-  box-shadow: 0 1px 2px rgb(23 58 120 / 0.04), 0 10px 30px rgb(23 58 120 / 0.05);
+  padding: 24px;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1.5px solid transparent;
+  border-radius: 36px;
+  box-shadow: 0 1px 2px rgb(23 58 120 / 0.04), 0 8px 24px rgb(23 58 120 / 0.05);
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.app-card:hover {
+.app-card:hover,
+.app-card:focus-within {
   border-color: var(--fb-blue);
-  box-shadow: 0 14px 40px rgb(23 58 120 / 0.1);
+  box-shadow: 0 12px 32px rgb(23 58 120 / 0.09);
 }
 
 .app-tag {
@@ -608,72 +612,79 @@ a {
   align-self: start;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 7px 16px;
+  gap: 8px;
+  padding: 8px 12px;
   border: 1px solid var(--light-mid);
   border-radius: 999px;
   color: var(--heading);
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 600;
+  line-height: 1.24;
+}
+
+.app-tag .dot {
+  width: 8px;
+  height: 8px;
 }
 
 .app-name {
-  margin: 28px 0 12px;
+  margin: 32px 0 0;
   color: var(--heading);
-  font-size: clamp(1.8rem, 3.2vw, 2.3rem);
+  font-size: 1.75rem;
   font-weight: 800;
-  letter-spacing: -0.01em;
-  line-height: 1.1;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .app-desc {
-  margin: 0;
+  margin: 16px 0 0;
   color: var(--gray);
-  font-size: 1.02rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.55;
 }
 
 .app-stats {
   align-self: start;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 28px;
+  margin-top: 24px;
   border-top: 1px solid var(--light-mid);
 }
 
 .app-stat {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
+  min-height: 48px;
   padding-top: 20px;
 }
 
 .app-stat + .app-stat {
-  padding-left: 24px;
+  padding-left: 20px;
   border-left: 1px solid var(--light-mid);
 }
 
 .app-stat-value {
   color: var(--heading);
-  font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+  font-size: 1.5rem;
   font-weight: 800;
-  letter-spacing: -0.01em;
-  line-height: 1.15;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .app-stat-label {
   color: var(--gray);
-  font-size: 0.98rem;
+  font-size: 0.875rem;
+  line-height: 1.24;
 }
 
+/* Bleeds to the card edges; the overlay fades the bottom corners into the card. */
 .app-shot {
+  position: relative;
   display: block;
-  margin: 32px 0;
-  border: 1px solid var(--light-mid);
-  border-radius: 18px;
-  overflow: hidden;
-  background: var(--light);
+  margin: 24px -24px 0;
   aspect-ratio: 4 / 3;
+  background: var(--light);
 }
 
 .app-shot img {
@@ -682,35 +693,45 @@ a {
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  transition: transform 0.5s ease;
 }
 
-.app-card:hover .app-shot img {
-  transform: scale(1.03);
+.app-shot::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 -2px;
+  pointer-events: none;
+  background:
+    radial-gradient(97.71% 97.71% at 50% 0%, rgb(255 255 255 / 0) 77.1%, var(--card-bg) 100%),
+    linear-gradient(to bottom, rgb(255 255 255 / 0) 70%, var(--card-bg) 100%);
 }
 
 .app-actions {
   align-self: end;
+  position: relative;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
+  margin-top: -8px;
 }
 
 .app-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 13px 28px;
+  height: 48px;
+  padding: 0 24px;
   border-radius: 999px;
-  font-size: 1.05rem;
+  font-size: 0.9rem;
   font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s, transform 0.2s;
+  transition: background 0.3s ease-in, color 0.3s ease-in;
 }
 
-.app-btn:hover {
-  transform: translateY(-1px);
+.app-btn svg {
+  width: 16px;
+  height: 16px;
 }
 
 .app-btn-open {
@@ -719,7 +740,7 @@ a {
 }
 
 .app-btn-open:hover {
-  background: var(--fb-blue-dark);
+  background: var(--fb-blue);
 }
 
 .app-btn-code {
@@ -1045,7 +1066,7 @@ a {
   }
 
   .app-cards {
-    max-width: 520px;
+    grid-template-columns: minmax(0, 400px);
   }
 
   .hero {
@@ -1087,11 +1108,6 @@ a {
   .member-grid.large .avatar {
     width: 72px;
     height: 72px;
-  }
-
-  .app-card {
-    padding: 24px;
-    border-radius: 24px;
   }
 }
 
