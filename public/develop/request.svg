@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Cici receiving an idea in a speech bubble">
+<circle cx="600" cy="470" r="410" fill="#e6edf7"/>
+
+<ellipse cx="870" cy="850" rx="270" ry="20" fill="#0f366f" opacity=".1"/>
+<g transform="translate(590 370) scale(0.56)">
+ <path fill="#f8f4ee" d="M285 32 L432 102 L675 15 L972 165 L972 580 L605 715 L333 557 L334 178 Z"/>
+ <path fill="#e3c777" d="M432 102 L675 15 L972 165 L818 226 Z"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M334 178 L285 32 Q392 28 432 102"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M334 178 L331 552 L125 625"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M432 102 L675 15 L972 165 L972 580 L385 822"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M334 552 L608 700"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M820 248 L958 200"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M125 625 C125 560 105 500 70 497 C35 495 22 545 25 575 C28 605 40 630 58 645"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M385 822 C385 760 365 702 330 700 C290 700 275 745 278 770 C282 800 300 820 318 832"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M578 263 C650 195 740 150 808 138"/>
+ <path fill="#0f366f" d="M786 140 L827 136 L816 232 L838 268 L840 365 L778 383 L773 285 Z"/>
+ <path fill="#0f366f" d="M786 507 L838 492 L845 610 L800 628 L790 620 Z"/>
+ <path fill="#0f366f" d="M392 317 L440 330 L433 447 L390 432 Z"/><path fill="#0f366f" d="M522 347 L625 340 L617 533 L515 480 Z"/>
+ </g>
+<path fill="#ffffff" stroke="#0f366f" stroke-width="21" stroke-linecap="round" stroke-linejoin="round" d="M150 90 H520 Q600 90 600 170 V380 Q600 460 520 460 H470 L560 560 L360 460 H150 Q70 460 70 380 V170 Q70 90 150 90 Z"/>
+<g stroke="#0f366f" stroke-width="21" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="#e3c777" d="M335 140 C255 140 215 200 215 255 C215 305 250 330 272 360 L278 392 H392 L398 360 C420 330 455 305 455 255 C455 200 415 140 335 140 Z"/>
+  <path fill="#ffffff" d="M285 392 H385 V420 Q385 440 365 440 H305 Q285 440 285 420 Z"/>
+  <path fill="none" d="M300 300 L320 330 L335 300 L350 330 L370 300"/>
+</g>
+<path fill="#e3c777" stroke="#0f366f" stroke-width="21" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:14.7" d="M1010 104 Q1022.88 137.12 1056 150 Q1022.88 162.88 1010 196 Q997.12 162.88 964 150 Q997.12 137.12 1010 104 Z"/>
+<path fill="#f8f4ee" stroke="#0f366f" stroke-width="21" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:14.7" d="M1110 242 Q1117.84 262.16 1138 270 Q1117.84 277.84 1110 298 Q1102.16 277.84 1082 270 Q1102.16 262.16 1110 242 Z"/>
+
+</svg>
