@@ -551,13 +551,7 @@ a {
 .eyebrow-gold { color: var(--gold-ink); }
 .eyebrow-blue { color: var(--blue); }
 
-/* ---------- apps ---------- */
-.categories {
-  display: grid;
-  gap: 40px;
-}
-
-.category-head,
+/* ---------- shared heads (team) ---------- */
 .group-head {
   display: flex;
   align-items: center;
@@ -566,17 +560,10 @@ a {
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   flex: none;
-}
-
-.category-head h3 {
-  margin: 0;
-  color: var(--heading);
-  font-size: 1.4rem;
-  font-weight: 700;
 }
 
 .rule {
@@ -586,127 +573,188 @@ a {
   margin-left: 8px;
 }
 
-.app-grid {
+/* ---------- apps ---------- */
+/* Card layout follows the Sentient product cards: tag, title, short text, a two-figure
+   stat row, an edge-to-edge picture that fades into the card, then the buttons. */
+.app-cards {
+  --card-bg: #fff;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 380px));
+  justify-content: center;
+  gap: 40px;
 }
 
+/* Each card spans six shared rows (tag, name, text, stats, screenshot, buttons) so
+   the parts line up across cards even when one description is longer. */
 .app-card {
-  display: flex;
-  gap: 16px;
-  padding: 16px;
-  background: #fff;
-  border: 2px solid var(--light-mid);
-  border-radius: 14px;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.04), 0 6px 20px rgb(0 0 0 / 0.04);
+  display: grid;
+  grid-row: span 6;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  align-content: start;
+  padding: 24px;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1.5px solid transparent;
+  border-radius: 36px;
+  box-shadow: 0 1px 2px rgb(23 58 120 / 0.04), 0 8px 24px rgb(23 58 120 / 0.05);
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.app-card:hover {
+.app-card:hover,
+.app-card:focus-within {
   border-color: var(--fb-blue);
-  box-shadow: 0 10px 30px rgb(23 58 120 / 0.09);
+  box-shadow: 0 12px 32px rgb(23 58 120 / 0.09);
 }
 
-.app-left {
-  flex: none;
+.app-tag {
+  justify-self: start;
+  align-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--light-mid);
+  border-radius: 999px;
+  color: var(--heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.24;
+}
+
+.app-tag .dot {
+  width: 8px;
+  height: 8px;
+}
+
+.app-name {
+  margin: 32px 0 0;
+  color: var(--heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.app-desc {
+  margin: 16px 0 0;
+  color: var(--gray);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.app-stats {
+  align-self: start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 24px;
+  border-top: 1px solid var(--light-mid);
+}
+
+.app-stat {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-height: 48px;
+  padding-top: 20px;
 }
 
-.thumb {
+.app-stat + .app-stat {
+  padding-left: 20px;
+  border-left: 1px solid var(--light-mid);
+}
+
+.app-stat-value {
+  color: var(--heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.app-stat-label {
+  color: var(--gray);
+  font-size: 0.875rem;
+  line-height: 1.24;
+}
+
+/* Bleeds to the card edges; the overlay fades the bottom corners into the card. */
+.app-shot {
+  position: relative;
   display: block;
-  width: 128px;
-  height: 96px;
-  border-radius: 8px;
-  overflow: hidden;
+  margin: 24px -24px 0;
+  aspect-ratio: 4 / 3;
   background: var(--light);
-  border: 1px solid var(--light-mid);
 }
 
-.thumb svg {
+.app-shot img {
+  display: block;
   width: 100%;
   height: 100%;
-  display: block;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.app-shot::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 -2px;
+  pointer-events: none;
+  background:
+    radial-gradient(97.71% 97.71% at 50% 0%, rgb(255 255 255 / 0) 77.1%, var(--card-bg) 100%),
+    linear-gradient(to bottom, rgb(255 255 255 / 0) 70%, var(--card-bg) 100%);
 }
 
 .app-actions {
+  align-self: end;
+  position: relative;
   display: flex;
-  align-items: center;
-  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: -8px;
 }
 
-.pill-open,
-.pill-code {
+.app-btn {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 24px;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.9rem;
+  font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s;
+  transition: background 0.3s ease-in, color 0.3s ease-in;
 }
 
-.pill-open {
-  padding: 4px 10px;
-  font-weight: 700;
+.app-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.app-btn-open {
+  color: #fff;
+  background: var(--blue);
+}
+
+.app-btn-open:hover {
+  background: var(--fb-blue);
+}
+
+.app-btn-code {
   color: var(--blue);
   background: var(--blue-soft);
 }
 
-.pill-open:hover {
+.app-btn-code:hover {
   background: var(--gold-hover);
-}
-
-.pill-code {
-  padding: 4px 6px;
-  font-weight: 600;
-  color: var(--gray-dark);
-}
-
-.pill-code:hover {
-  background: #fff3cf;
 }
 
 .is-disabled {
   opacity: 0.55;
   cursor: default;
-}
-
-.app-right {
-  min-width: 0;
-  flex: 1;
-}
-
-.app-right a {
-  text-decoration: none;
-}
-
-.app-right h4 {
-  margin: 4px 0 6px;
-  color: var(--heading);
-  font-size: 1.3rem;
-  font-weight: 700;
-  transition: color 0.2s;
-}
-
-.app-card:hover h4 {
-  color: var(--fb-blue);
-}
-
-.app-desc {
-  margin: 0;
-  color: var(--gray-dark);
-  font-size: 0.98rem;
-  line-height: 1.55;
-}
-
-.app-credits {
-  margin: 8px 0 0;
-  color: var(--gray);
-  font-size: 0.85rem;
-  line-height: 1.5;
 }
 
 /* ---------- develop ---------- */
@@ -823,34 +871,6 @@ a {
 }
 
 /* ---------- team ---------- */
-.role-filters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 48px;
-}
-
-.role-pill {
-  padding: 8px 18px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--blue);
-  background: var(--blue-soft);
-  transition: background 0.2s, color 0.2s, transform 0.2s;
-}
-
-.role-pill:hover {
-  transform: translateY(-1px);
-  background: var(--gold-hover);
-}
-
-.role-pill.active {
-  background: var(--fb-blue-dark);
-  color: #fff;
-}
-
 .member-groups {
   display: grid;
   gap: 40px;
@@ -1003,13 +1023,6 @@ a {
   animation-duration: 0.35s;
 }
 
-.placeholder-note {
-  margin: 40px 0 0;
-  text-align: center;
-  color: var(--gray);
-  font-size: 0.9rem;
-}
-
 /* ---------- footer ---------- */
 .site-footer {
   background: var(--fb-blue-dark);
@@ -1046,10 +1059,14 @@ a {
 }
 
 @media (max-width: 720px) {
-  .app-grid,
+  .app-cards,
   .steps,
   .member-grid.compact {
     grid-template-columns: 1fr;
+  }
+
+  .app-cards {
+    grid-template-columns: minmax(0, 400px);
   }
 
   .hero {
@@ -1091,15 +1108,6 @@ a {
   .member-grid.large .avatar {
     width: 72px;
     height: 72px;
-  }
-
-  .app-card {
-    flex-direction: column;
-  }
-
-  .thumb {
-    width: 100%;
-    height: 150px;
   }
 }
 
