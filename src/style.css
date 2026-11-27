@@ -551,13 +551,7 @@ a {
 .eyebrow-gold { color: var(--gold-ink); }
 .eyebrow-blue { color: var(--blue); }
 
-/* ---------- apps ---------- */
-.categories {
-  display: grid;
-  gap: 40px;
-}
-
-.category-head,
+/* ---------- shared heads (team) ---------- */
 .group-head {
   display: flex;
   align-items: center;
@@ -566,17 +560,10 @@ a {
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   flex: none;
-}
-
-.category-head h3 {
-  margin: 0;
-  color: var(--heading);
-  font-size: 1.4rem;
-  font-weight: 700;
 }
 
 .rule {
@@ -586,127 +573,167 @@ a {
   margin-left: 8px;
 }
 
-.app-grid {
+/* ---------- apps ---------- */
+.app-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 28px;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
+/* Each card spans six shared rows (tag, name, text, stats, screenshot, buttons) so
+   the parts line up across cards even when one description is longer. */
 .app-card {
-  display: flex;
-  gap: 16px;
-  padding: 16px;
+  display: grid;
+  grid-row: span 6;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  align-content: start;
+  padding: 32px;
   background: #fff;
-  border: 2px solid var(--light-mid);
-  border-radius: 14px;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.04), 0 6px 20px rgb(0 0 0 / 0.04);
+  border: 2px solid transparent;
+  border-radius: 32px;
+  box-shadow: 0 1px 2px rgb(23 58 120 / 0.04), 0 10px 30px rgb(23 58 120 / 0.05);
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .app-card:hover {
   border-color: var(--fb-blue);
-  box-shadow: 0 10px 30px rgb(23 58 120 / 0.09);
+  box-shadow: 0 14px 40px rgb(23 58 120 / 0.1);
 }
 
-.app-left {
-  flex: none;
+.app-tag {
+  justify-self: start;
+  align-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 16px;
+  border: 1px solid var(--light-mid);
+  border-radius: 999px;
+  color: var(--heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.app-name {
+  margin: 28px 0 12px;
+  color: var(--heading);
+  font-size: clamp(1.8rem, 3.2vw, 2.3rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.app-desc {
+  margin: 0;
+  color: var(--gray);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.app-stats {
+  align-self: start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 28px;
+  border-top: 1px solid var(--light-mid);
+}
+
+.app-stat {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
+  padding-top: 20px;
 }
 
-.thumb {
+.app-stat + .app-stat {
+  padding-left: 24px;
+  border-left: 1px solid var(--light-mid);
+}
+
+.app-stat-value {
+  color: var(--heading);
+  font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.app-stat-label {
+  color: var(--gray);
+  font-size: 0.98rem;
+}
+
+.app-shot {
   display: block;
-  width: 128px;
-  height: 96px;
-  border-radius: 8px;
+  margin: 32px 0;
+  border: 1px solid var(--light-mid);
+  border-radius: 18px;
   overflow: hidden;
   background: var(--light);
-  border: 1px solid var(--light-mid);
+  aspect-ratio: 4 / 3;
 }
 
-.thumb svg {
+.app-shot img {
+  display: block;
   width: 100%;
   height: 100%;
-  display: block;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s ease;
+}
+
+.app-card:hover .app-shot img {
+  transform: scale(1.03);
 }
 
 .app-actions {
+  align-self: end;
   display: flex;
-  align-items: center;
-  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.pill-open,
-.pill-code {
+.app-btn {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
+  padding: 13px 28px;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 1.05rem;
+  font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
-.pill-open {
-  padding: 4px 10px;
-  font-weight: 700;
+.app-btn:hover {
+  transform: translateY(-1px);
+}
+
+.app-btn-open {
+  color: #fff;
+  background: var(--blue);
+}
+
+.app-btn-open:hover {
+  background: var(--fb-blue-dark);
+}
+
+.app-btn-code {
   color: var(--blue);
   background: var(--blue-soft);
 }
 
-.pill-open:hover {
+.app-btn-code:hover {
   background: var(--gold-hover);
-}
-
-.pill-code {
-  padding: 4px 6px;
-  font-weight: 600;
-  color: var(--gray-dark);
-}
-
-.pill-code:hover {
-  background: #fff3cf;
 }
 
 .is-disabled {
   opacity: 0.55;
   cursor: default;
-}
-
-.app-right {
-  min-width: 0;
-  flex: 1;
-}
-
-.app-right a {
-  text-decoration: none;
-}
-
-.app-right h4 {
-  margin: 4px 0 6px;
-  color: var(--heading);
-  font-size: 1.3rem;
-  font-weight: 700;
-  transition: color 0.2s;
-}
-
-.app-card:hover h4 {
-  color: var(--fb-blue);
-}
-
-.app-desc {
-  margin: 0;
-  color: var(--gray-dark);
-  font-size: 0.98rem;
-  line-height: 1.55;
-}
-
-.app-credits {
-  margin: 8px 0 0;
-  color: var(--gray);
-  font-size: 0.85rem;
-  line-height: 1.5;
 }
 
 /* ---------- develop ---------- */
@@ -1011,10 +1038,14 @@ a {
 }
 
 @media (max-width: 720px) {
-  .app-grid,
+  .app-cards,
   .steps,
   .member-grid.compact {
     grid-template-columns: 1fr;
+  }
+
+  .app-cards {
+    max-width: 520px;
   }
 
   .hero {
@@ -1059,12 +1090,8 @@ a {
   }
 
   .app-card {
-    flex-direction: column;
-  }
-
-  .thumb {
-    width: 100%;
-    height: 150px;
+    padding: 24px;
+    border-radius: 24px;
   }
 }
 

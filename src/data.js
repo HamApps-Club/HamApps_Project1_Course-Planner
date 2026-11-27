@@ -4,37 +4,35 @@ export const CONTACT_EMAIL = 'it.admin@hamapps.dev'
 
 const ORG_URL = 'https://github.com/HamAppsDev'
 
-// Category dots use shades of the club's blue palette.
-// `thumb` picks a built-in placeholder picture (see thumbs in main.js) until real screenshots exist.
-export const CATEGORIES = [
+// One card per app. `category` and `color` drive the tag at the top of the card;
+// `stats` are the two figures under the description; `image` is a screenshot in public/apps/.
+export const APPS = [
   {
-    name: 'Course Planning',
+    name: 'Hamilton Scheduler',
+    category: 'Course Planning',
     color: '#173A78',
-    apps: [
-      {
-        name: 'Hamilton Scheduler',
-        description:
-          'Search Hamilton College courses, build up to three weekly schedules a semester with time-conflict checking, and add them to your calendar.',
-        open: 'https://scheduler.hamapps.dev/',
-        code: `${ORG_URL}/HamiltonScheduler`,
-        credits: 'By the HamApps team.',
-        thumb: 'calendar',
-      },
+    description:
+      'Search Hamilton College courses, build up to three weekly schedules a semester with time-conflict checking, and add them to your calendar.',
+    stats: [
+      { value: '5x faster', label: 'than student planning' },
+      { value: 'Extremely', label: 'user-friendly' },
     ],
+    image: '/apps/scheduler.jpg',
+    open: 'https://scheduler.hamapps.dev/',
+    code: `${ORG_URL}/HamiltonScheduler`,
   },
   {
-    name: 'Campus Life',
+    name: 'Hameats',
+    category: 'Campus Life',
     color: '#43699A',
-    apps: [
-      {
-        name: 'Hameats',
-        description: 'Today\'s menus and hours for every Hamilton dining hall and cafe, on one page.',
-        open: 'https://hameats.app',
-        code: null,
-        credits: 'For the Hamilton community.',
-        thumb: 'menu',
-      },
+    description: 'Today\'s menus and hours for every Hamilton dining hall and cafe, on one page.',
+    stats: [
+      { value: '200+', label: 'Daily users' },
+      { value: '7', label: 'Dining menus' },
     ],
+    image: '/apps/hameats.jpg',
+    open: 'https://hameats.app',
+    code: `${ORG_URL}/hameats`,
   },
 ]
 
