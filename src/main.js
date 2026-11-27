@@ -45,11 +45,8 @@ chip?.addEventListener('click', async () => {
   }, 1600)
 })
 
-const openIcon = `<svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor" stroke-width="2.5" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>`
-const ghIcon = `<svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>`
-
-// Resize an icon by its width/height only (the path data also contains 13s).
-const sized = (icon, px) => icon.replace('width="13" height="13"', `width="${px}" height="${px}"`)
+const openIcon = (px) => `<svg viewBox="0 0 24 24" width="${px}" height="${px}" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor" stroke-width="2.5" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>`
+const ghIcon = (px) => `<svg viewBox="0 0 16 16" width="${px}" height="${px}" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>`
 
 const link = (href, cls, inner, title) =>
   href
@@ -69,8 +66,8 @@ appsEl.innerHTML = APPS.map(
     </div>
     ${link(app.open, 'app-shot', `<img src="${esc(app.image)}" alt="Screenshot of ${esc(app.name)}" width="1280" height="960" loading="lazy" />`)}
     <div class="app-actions">
-      ${link(app.open, 'app-btn app-btn-open', `${sized(openIcon, 18)} Open`)}
-      ${link(app.code, 'app-btn app-btn-code', `${sized(ghIcon, 18)} GitHub`, 'View source code')}
+      ${link(app.open, 'app-btn app-btn-open', `${openIcon(16)} Open`)}
+      ${link(app.code, 'app-btn app-btn-code', `${ghIcon(16)} GitHub`, 'View source code')}
     </div>
   </article>`,
 ).join('')
@@ -93,8 +90,8 @@ const avatar = (m) =>
 
 const memberLinks = (m) => {
   const parts = []
-  if (m.github) parts.push(`<a href="https://github.com/${esc(m.github)}" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile for ${esc(m.name)}">${sized(ghIcon, 18)}</a>`)
-  if (m.site) parts.push(`<a href="${esc(m.site)}" target="_blank" rel="noopener noreferrer" aria-label="Website for ${esc(m.name)}">${sized(openIcon, 18)}</a>`)
+  if (m.github) parts.push(`<a href="https://github.com/${esc(m.github)}" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile for ${esc(m.name)}">${ghIcon(18)}</a>`)
+  if (m.site) parts.push(`<a href="${esc(m.site)}" target="_blank" rel="noopener noreferrer" aria-label="Website for ${esc(m.name)}">${openIcon(18)}</a>`)
   return parts.length ? `<div class="member-links">${parts.join('')}</div>` : ''
 }
 
@@ -108,10 +105,8 @@ function renderMembers() {
       <ul class="member-grid ${g.layout}">
         ${people
           .map((m) => {
-            const id = MEMBERS.indexOf(m)
-            const isTbd = m.name === 'TBD'
             return `
-          <li class="member${isTbd ? ' is-tbd' : ''}" style="view-transition-name: member-${id}">
+          <li class="member">
             <div class="member-portrait">${avatar(m)}${g.layout === 'compact' ? memberLinks(m) : ''}</div>
             <div class="member-content">
               <span class="member-name">${esc(m.name)}${m.year ? ` <span class="member-year">'${esc(m.year)}</span>` : ''}</span>

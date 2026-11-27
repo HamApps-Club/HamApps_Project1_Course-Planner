@@ -32,7 +32,7 @@ Almost everything on the page comes from **`src/data.js`**:
 | Contact email (hero, Develop section, footer) | `CONTACT_EMAIL` |
 | Apps | `APPS`: each app has `name`, `category` and `color` (the tag on the card), `description`, `stats` (two `{ value, label }` figures), `image` (a screenshot in `public/apps/`, 4:3), `open` (live link) and `code` (GitHub link, or `null` to hide it). |
 | Team groups and their order | `GROUPS` (`layout: 'large'` for big cards, like the Board) |
-| Team members | `MEMBERS`: `name`, `year`, `group`, `position`, `title`, `roles`, and optionally `github` (username) and `photo` (put the image in `public/` and set `photo: '/name.jpg'`). |
+| Team members | `MEMBERS`: `name`, `year`, `group`, `position`, `title`, and optionally `github` (username) and `photo` (put the image in `public/` and set `photo: '/name.jpg'`). |
 
 Page text, navigation and the Instagram link are in `index.html`; colors and layout in `src/style.css`.
 
