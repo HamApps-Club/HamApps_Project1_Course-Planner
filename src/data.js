@@ -36,6 +36,25 @@ export const APPS = [
   },
 ]
 
+// The three cards in "Build With Us". `image` is a 4:3 picture in public/develop/.
+export const DEVELOP_CARDS = [
+  {
+    title: 'Request',
+    image: '/develop/request.svg',
+    text: 'Students, faculty, or campus offices ask us to build an app, or to take over one that already exists.',
+  },
+  {
+    title: 'Contribute',
+    image: '/develop/contribute.svg',
+    text: 'Join a project team as a developer, designer, product manager, marketer, or tester.',
+  },
+  {
+    title: 'Share',
+    image: '/develop/share.svg',
+    text: 'Built something for campus already? Submit it and we’ll keep it running after you graduate.',
+  },
+]
+
 // Groups shown in this order. `layout: 'large'` = big centered cards (like the Board).
 export const GROUPS = [
   { name: 'Board', layout: 'large' },
@@ -44,10 +63,11 @@ export const GROUPS = [
 
 // Current roster.
 export const MEMBERS = [
-  { name: 'Brandon Niles Taylor', year: '28', group: 'Board', position: 'President', title: 'Product Manager', github: 'brandonnilestaylor', roles: ['Board', 'Product Management', 'Engineering', 'Infrastructure'] },
-  { name: 'Zhuo (Philip) Li', year: '29', group: 'Board', position: 'Vice President', title: 'Product Designer', github: 'flp-lab', roles: ['Board', 'Product Management', 'Engineering', 'Design'] },
-  { name: 'Haiqi Lyu', year: '29', group: 'Board', position: 'Treasurer', title: 'Graphic Designer', roles: ['Board', 'Design'] },
-  { name: 'Maung Thein Nyunt', year: '28', group: 'Board', position: 'Secretary', title: 'Beta Tester', roles: ['Board'] },
-  { name: 'Jun Seo', year: '27', group: 'Members', title: 'Beta Tester', roles: ['Member'] },
+  { name: 'Brandon Niles Taylor', year: '28', group: 'Board', position: 'President', title: 'Product Manager', github: 'brandonnilestaylor', photo: '/team/brandon-niles-taylor.jpg', roles: ['Board', 'Product Management', 'Engineering', 'Infrastructure'] },
+  { name: 'Zhuo (Philip) Li', year: '29', group: 'Board', position: 'Vice President', title: 'Product Designer', github: 'flp-lab', photo: '/team/philip-li.jpg', roles: ['Board', 'Product Management', 'Engineering', 'Design'] },
+  { name: 'Haiqi Lyu', year: '29', group: 'Board', position: 'Treasurer', title: 'Graphic Designer', photo: '/team/haiqi-lyu.jpg', roles: ['Board', 'Design'] },
+  { name: 'Maung Thein Nyunt', year: '28', group: 'Board', position: 'Secretary', title: 'Beta Tester', photo: '/team/maung-thein-nyunt.jpg', roles: ['Board'] },
+  { name: 'Jun Seo', year: '27', group: 'Members', title: 'Beta Tester', photo: '/team/jun-seo.jpg', roles: ['Member'] },
+  { name: 'Ian Chang', year: '28', group: 'Members', title: 'Beta Tester', photo: '/team/ian-chang.jpg', roles: ['Member'] },
 ]
 

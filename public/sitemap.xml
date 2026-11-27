@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Every page search engines should index. The homepage is one page (the top buttons scroll within it),
-     so it's the only entry. Add a <url> here if you ever add a separate page. -->
+<!-- Every page search engines should index. The homepage is one page (the top buttons scroll within it);
+     /join is the onboarding page. Add a <url> here if you ever add another separate page. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hamapps.dev/</loc>
+  </url>
+  <url>
+    <loc>https://hamapps.dev/join</loc>
   </url>
 </urlset>

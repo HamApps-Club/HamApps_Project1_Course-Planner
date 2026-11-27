@@ -1,7 +1,6 @@
-import { APPS, CONTACT_EMAIL, GROUPS, MEMBERS } from './data.js'
+import { APPS, CONTACT_EMAIL, DEVELOP_CARDS, GROUPS, MEMBERS } from './data.js'
 import { mountBoxCat } from './boxcat.js'
 import { mountBoxCatBg } from './boxcat-bg.js'
-import { renderDevelopCards } from './develop-art.js'
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const esc = (s) =>
@@ -15,7 +14,17 @@ const heroBg = document.getElementById('hero-bg')
 if (heroBg) mountBoxCatBg(heroBg)
 
 const developCards = document.getElementById('develop-cards')
-if (developCards) renderDevelopCards(developCards)
+if (developCards) {
+  // The pictures are decorative: each card's title and text say the same thing.
+  developCards.innerHTML = DEVELOP_CARDS.map(
+    (c) => `
+    <article class="step">
+      <div class="step-art"><img src="${esc(c.image)}" alt="" width="1200" height="900" loading="lazy" /></div>
+      <h3>${esc(c.title)}</h3>
+      <p>${esc(c.text)}</p>
+    </article>`,
+  ).join('')
+}
 
 
 /* ---------- smooth scroll buttons ---------- */

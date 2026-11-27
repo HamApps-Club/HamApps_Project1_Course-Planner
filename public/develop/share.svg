@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Cici proudly presenting a new app on a phone">
+<circle cx="600" cy="470" r="410" fill="#e6edf7"/>
+
+<ellipse cx="380" cy="850" rx="270" ry="20" fill="#0f366f" opacity=".1"/>
+<g transform="translate(60 370) scale(0.56) translate(997 0) scale(-1 1)">
+ <path fill="#f8f4ee" d="M285 32 L432 102 L675 15 L972 165 L972 580 L605 715 L333 557 L334 178 Z"/>
+ <path fill="#e3c777" d="M432 102 L675 15 L972 165 L818 226 Z"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M334 178 L285 32 Q392 28 432 102"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M334 178 L331 552 L125 625"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M432 102 L675 15 L972 165 L972 580 L385 822"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M334 552 L608 700"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M820 248 L958 200"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M125 625 C125 560 105 500 70 497 C35 495 22 545 25 575 C28 605 40 630 58 645"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M385 822 C385 760 365 702 330 700 C290 700 275 745 278 770 C282 800 300 820 318 832"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M578 263 C650 195 740 150 808 138"/>
+ <path fill="#0f366f" d="M786 140 L827 136 L816 232 L838 268 L840 365 L778 383 L773 285 Z"/>
+ <path fill="#0f366f" d="M786 507 L838 492 L845 610 L800 628 L790 620 Z"/>
+ <path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M388 438 Q412 392 438 442"/><path fill="none" stroke="#0f366f" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" d="M515 498 Q566 410 620 502"/><ellipse cx="402" cy="495" rx="30" ry="16" fill="#f29bb0" transform="rotate(14 402 495)"/><ellipse cx="600" cy="565" rx="38" ry="19" fill="#f29bb0" transform="rotate(14 600 565)"/>
+ </g>
+<g transform="rotate(8 880 470)">
+  <rect x="720" y="110" width="330" height="660" rx="60" fill="#0f366f" stroke="#0f366f" stroke-width="21" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="752" y="150" width="266" height="580" rx="34" fill="#ffffff"/>
+  <rect x="845" y="125" width="80" height="14" rx="7" fill="#f8f4ee"/>
+  <g stroke="#0f366f" stroke-width="21" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="790" y="200" width="190" height="190" rx="46" fill="#e3c777"/>
+    <rect x="790" y="430" width="80" height="80" rx="22" fill="#f8f4ee"/>
+    <rect x="900" y="430" width="80" height="80" rx="22" fill="#f8f4ee"/>
+    <rect x="790" y="545" width="80" height="80" rx="22" fill="#f8f4ee"/>
+    <rect x="900" y="545" width="80" height="80" rx="22" fill="#f8f4ee"/>
+  </g>
+  <path fill="#0f366f" d="M885 235 L906 278 L953 284 L919 316 L928 362 L885 340 L842 362 L851 316 L817 284 L864 278 Z"/>
+</g>
+<path fill="#e3c777" stroke="#0f366f" stroke-width="21" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:14.7" d="M640 104 Q652.88 137.12 686 150 Q652.88 162.88 640 196 Q627.12 162.88 594 150 Q627.12 137.12 640 104 Z"/>
+<path fill="#f8f4ee" stroke="#0f366f" stroke-width="21" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:14.7" d="M1130 80 Q1138.4 101.6 1160 110 Q1138.4 118.4 1130 140 Q1121.6 118.4 1100 110 Q1121.6 101.6 1130 80 Z"/>
+<path fill="#e3c777" stroke="#0f366f" stroke-width="21" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:14.7" d="M1140 604 Q1150.08 629.92 1176 640 Q1150.08 650.08 1140 676 Q1129.92 650.08 1104 640 Q1129.92 629.92 1140 604 Z"/>
+<path fill="none" stroke="#0f366f" stroke-width="21" stroke-linecap="round" stroke-linejoin="round" d="M640 300 L600 330 M690 360 L640 380 M650 240 L620 230"/>
+
+</svg>
