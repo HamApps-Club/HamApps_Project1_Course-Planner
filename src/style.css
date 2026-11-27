@@ -729,11 +729,6 @@ a {
   transition: background 0.3s ease-in, color 0.3s ease-in;
 }
 
-.app-btn svg {
-  width: 16px;
-  height: 16px;
-}
-
 .app-btn-open {
   color: #fff;
   background: var(--blue);
@@ -895,12 +890,6 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 }
 
-.member.is-tbd .member-name,
-.member.is-tbd .member-title {
-  color: var(--gray);
-  font-style: italic;
-}
-
 .member-grid.compact {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -1017,10 +1006,6 @@ a {
 
 .member-links a:hover {
   color: var(--fb-blue);
-}
-
-::view-transition-group(*) {
-  animation-duration: 0.35s;
 }
 
 /* ---------- footer ---------- */
