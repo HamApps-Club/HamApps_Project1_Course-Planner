@@ -581,7 +581,7 @@ a {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 380px));
   justify-content: center;
-  gap: 24px;
+  gap: 40px;
 }
 
 /* Each card spans six shared rows (tag, name, text, stats, screenshot, buttons) so
