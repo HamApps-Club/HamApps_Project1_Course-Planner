@@ -22,12 +22,12 @@ export const APPS = [
     code: `${ORG_URL}/HamiltonScheduler`,
   },
   {
-    name: 'Hameats',
+    name: 'HamEats',
     category: 'Campus Life',
     color: '#43699A',
     description: 'Today\'s menus and hours for every Hamilton dining hall and cafe, on one page.',
     stats: [
-      { value: '200+', label: 'Daily users' },
+      { value: '1200+', label: 'All time users' },
       { value: '7', label: 'Dining menus' },
     ],
     image: '/apps/hameats.jpg',
