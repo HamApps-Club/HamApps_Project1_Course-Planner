@@ -66,8 +66,8 @@ export const MEMBERS = [
   { name: 'Brandon Niles Taylor', year: '28', group: 'Board', position: 'President', title: 'Product Manager', github: 'brandonnilestaylor', photo: '/team/brandon-niles-taylor.jpg', roles: ['Board', 'Product Management', 'Engineering', 'Infrastructure'] },
   { name: 'Zhuo (Philip) Li', year: '29', group: 'Board', position: 'Vice President', title: 'Product Designer', github: 'flp-lab', photo: '/team/philip-li.jpg', roles: ['Board', 'Product Management', 'Engineering', 'Design'] },
   { name: 'Haiqi Lyu', year: '29', group: 'Board', position: 'Treasurer', title: 'Graphic Designer', photo: '/team/haiqi-lyu-2.jpg', roles: ['Board', 'Design'] },
-  { name: 'Maung Thein Nyunt', year: '28', group: 'Board', position: 'Secretary', title: 'Beta Tester', photo: '/team/maung-thein-nyunt.jpg', roles: ['Board'] },
-  { name: 'Jun Seo', year: '27', group: 'Members', title: 'Beta Tester', photo: '/team/jun-seo.jpg', roles: ['Member'] },
-  { name: 'Ian Chang', year: '28', group: 'Members', title: 'Beta Tester', photo: '/team/ian-chang.jpg', roles: ['Member'] },
+  { name: 'Maung Thein Nyunt', year: '28', group: 'Board', position: 'Secretary', title: 'Quality Assurance', photo: '/team/maung-thein-nyunt.jpg', roles: ['Board'] },
+  { name: 'Jun Seo', year: '27', group: 'Members', title: 'Quality Assurance', photo: '/team/jun-seo.jpg', roles: ['Member'] },
+  { name: 'Ian Chang', year: '28', group: 'Members', title: 'Quality Assurance', photo: '/team/ian-chang.jpg', roles: ['Member'] },
 ]
 
