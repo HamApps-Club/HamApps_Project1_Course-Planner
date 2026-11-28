@@ -31,7 +31,7 @@ export const APPS = [
       { value: '7', label: 'Dining menus' },
     ],
     image: '/apps/hameats.jpg',
-    open: 'https://hameats.app',
+    open: 'https://www.hameats.app/',
     code: `${ORG_URL}/hameats`,
   },
 ]

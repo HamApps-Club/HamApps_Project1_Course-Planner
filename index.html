@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#1877F2" />
-    <title>HamApps - Apps for Hamilton College Students</title>
+    <title>HamApps · Free Apps for Hamilton College Students</title>
     <meta
       name="description"
       content="HamApps is a student-run club at Hamilton College building free apps for students, like HamEats dining menus and the Hamilton Scheduler for classes."
@@ -17,7 +17,7 @@
     <!-- How links to the site look when shared (iMessage, Discord, Instagram, etc.) -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://hamapps.dev/" />
-    <meta property="og:title" content="HamApps - Apps for Hamilton College Students" />
+    <meta property="og:title" content="HamApps · Free Apps for Hamilton College Students" />
     <meta
       property="og:description"
       content="Student-built apps for the Hamilton College community: dining menus, class scheduling and more."
@@ -25,15 +25,61 @@
     <meta property="og:image" content="https://hamapps.dev/hamapps-logo-on-navy.png" />
     <meta property="og:site_name" content="HamApps" />
     <meta name="twitter:card" content="summary" />
-    <!-- Tells search engines the organization's name, logo and site -->
+    <meta property="og:locale" content="en_US" />
+    <!-- Tells search engines who HamApps is and which apps it makes. HamEats (www.hameats.app) and the
+         Hamilton Scheduler (scheduler.hamapps.dev) point back to the same "#organization" id, so Google
+         can tie all three sites together as one club. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "HamApps",
-        "url": "https://hamapps.dev/",
-        "logo": "https://hamapps.dev/hamapps-logo.png",
-        "description": "Student-run club at Hamilton College that builds apps for the campus community."
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://hamapps.dev/#organization",
+            "name": "HamApps",
+            "alternateName": ["HamApps Hamilton", "HamApps at Hamilton College", "Hamilton College HamApps"],
+            "url": "https://hamapps.dev/",
+            "logo": "https://hamapps.dev/hamapps-logo.png",
+            "email": "it.admin@hamapps.dev",
+            "description": "Student-run club at Hamilton College that builds free apps for the campus community.",
+            "parentOrganization": {
+              "@type": "CollegeOrUniversity",
+              "name": "Hamilton College",
+              "url": "https://www.hamilton.edu/"
+            },
+            "sameAs": ["https://github.com/HamAppsDev", "https://discord.gg/7edtbs8pua"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://hamapps.dev/#website",
+            "name": "HamApps",
+            "alternateName": "HamApps Hamilton",
+            "url": "https://hamapps.dev/",
+            "publisher": { "@id": "https://hamapps.dev/#organization" }
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://scheduler.hamapps.dev/#app",
+            "name": "Hamilton Scheduler",
+            "url": "https://scheduler.hamapps.dev/",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web",
+            "description": "Search Hamilton College courses, build weekly schedules with conflict checking, and add them to your calendar.",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "publisher": { "@id": "https://hamapps.dev/#organization" }
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://www.hameats.app/#app",
+            "name": "HamEats",
+            "url": "https://www.hameats.app/",
+            "applicationCategory": "LifestyleApplication",
+            "operatingSystem": "Web",
+            "description": "Every Hamilton College dining hall menu and hours in one place.",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "publisher": { "@id": "https://hamapps.dev/#organization" }
+          }
+        ]
       }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
