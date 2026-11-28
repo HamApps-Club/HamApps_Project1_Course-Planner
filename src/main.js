@@ -71,7 +71,7 @@ appsEl.innerHTML = APPS.map(
   (app, i) => `
   <article class="app-card fade-up" style="animation-delay:${(0.05 + i * 0.08).toFixed(2)}s">
     <span class="app-tag"><span class="dot" style="background:${esc(app.color)}"></span>${esc(app.category)}</span>
-    <h3 class="app-name">${esc(app.name)}</h3>
+    <h3 class="app-name">${app.open ? `<a href="${esc(app.open)}" target="_blank" rel="noopener noreferrer">${esc(app.name)}</a>` : esc(app.name)}</h3>
     <p class="app-desc">${esc(app.description)}</p>
     <div class="app-stats">
       ${app.stats.map((st) => `<div class="app-stat"><span class="app-stat-value">${esc(st.value)}</span><span class="app-stat-label">${esc(st.label)}</span></div>`).join('')}
