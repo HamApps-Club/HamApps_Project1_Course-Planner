@@ -11,5 +11,8 @@
   "devDependencies": {
     "sst": "^4.17.2",
     "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "posthog-js": "^1.455.4"
   }
 }
