@@ -30,7 +30,7 @@ Almost everything on the page comes from **`src/data.js`**:
 | What | Where in `src/data.js` |
 | --- | --- |
 | Contact email (hero, Develop section, footer) | `CONTACT_EMAIL` |
-| Apps | `APPS`: each app has `name`, `category` and `color` (the tag on the card), `description`, `stats` (two `{ value, label }` figures), `image` (a screenshot in `public/apps/`, 4:3), `open` (live link) and `code` (GitHub link, or `null` to hide it). |
+| Apps | `APPS`: each app has `name`, `category` and `color` (the tag on the card), `description`, `stats` (two `{ value, label }` figures), `image` and `imageLarge` (a 4:3 screenshot in `public/apps/` as WebP, 800px and 1280px wide: `cwebp -q 82 -resize 800 0 shot.png -o name-800.webp` and `cwebp -q 82 -resize 1280 0 shot.png -o name-1280.webp`), `open` (live link) and `code` (GitHub link, or `null` to hide it). |
 | Team groups and their order | `GROUPS` (`layout: 'large'` for big cards, like the Board) |
 | Team members | `MEMBERS`: `name`, `year`, `group`, `position`, `title`, `roles`, and optionally `github` (username) and `photo` (put the image in `public/` and set `photo: '/name.jpg'`). |
 

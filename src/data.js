@@ -5,7 +5,8 @@ export const CONTACT_EMAIL = 'it.admin@hamapps.dev'
 const ORG_URL = 'https://github.com/HamAppsDev'
 
 // One card per app. `category` and `color` drive the tag at the top of the card;
-// `stats` are the two figures under the description; `image` is a screenshot in public/apps/.
+// `stats` are the two figures under the description; `image` (800px wide) and `imageLarge`
+// (1280px, for sharp screens) are WebP screenshots in public/apps/; see the README.
 export const APPS = [
   {
     name: 'Hamilton Scheduler',
@@ -17,7 +18,8 @@ export const APPS = [
       { value: '5x faster', label: 'than student planning' },
       { value: '100%', label: 'user-friendly' },
     ],
-    image: '/apps/scheduler.jpg',
+    image: '/apps/scheduler-800.webp',
+    imageLarge: '/apps/scheduler-1280.webp',
     open: 'https://scheduler.hamapps.dev/',
     code: `${ORG_URL}/HamiltonScheduler`,
   },
@@ -30,7 +32,8 @@ export const APPS = [
       { value: '1200+', label: 'All time users' },
       { value: '7', label: 'Dining menus' },
     ],
-    image: '/apps/hameats.jpg',
+    image: '/apps/hameats-800.webp',
+    imageLarge: '/apps/hameats-1280.webp',
     open: 'https://www.hameats.app/',
     code: `${ORG_URL}/hameats`,
   },

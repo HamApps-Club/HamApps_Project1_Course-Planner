@@ -76,7 +76,7 @@ appsEl.innerHTML = APPS.map(
     <div class="app-stats">
       ${app.stats.map((st) => `<div class="app-stat"><span class="app-stat-value">${esc(st.value)}</span><span class="app-stat-label">${esc(st.label)}</span></div>`).join('')}
     </div>
-    ${link(app.open, 'app-shot', `<img src="${esc(app.image)}" alt="Screenshot of ${esc(app.name)}" width="1280" height="960" loading="lazy" />`)}
+    ${link(app.open, 'app-shot', `<img src="${esc(app.image)}" srcset="${esc(app.image)} 800w, ${esc(app.imageLarge)} 1280w" sizes="400px" alt="Screenshot of ${esc(app.name)}" width="1280" height="960" loading="lazy" decoding="async" />`)}
     <div class="app-actions">
       ${link(app.open, 'app-btn app-btn-open', `${sized(openIcon, 18)} Open`)}
       ${link(app.code, 'app-btn app-btn-code', `${sized(ghIcon, 18)} GitHub`, 'View source code')}
