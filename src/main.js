@@ -70,14 +70,13 @@ const appsEl = document.getElementById('app-cards')
 appsEl.innerHTML = APPS.map(
   (app, i) => `
   <article class="app-card fade-up" style="animation-delay:${(0.05 + i * 0.08).toFixed(2)}s">
-    ${app.open ? `<a class="app-card-link" href="${esc(app.open)}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"></a>` : ''}
     <span class="app-tag"><span class="dot" style="background:${esc(app.color)}"></span>${esc(app.category)}</span>
     <h3 class="app-name">${esc(app.name)}</h3>
     <p class="app-desc">${esc(app.description)}</p>
     <div class="app-stats">
       ${app.stats.map((st) => `<div class="app-stat"><span class="app-stat-value">${esc(st.value)}</span><span class="app-stat-label">${esc(st.label)}</span></div>`).join('')}
     </div>
-    <div class="app-shot"><img src="${esc(app.image)}" alt="Screenshot of ${esc(app.name)}" width="1280" height="960" loading="lazy" /></div>
+    ${link(app.open, 'app-shot', `<img src="${esc(app.image)}" alt="Screenshot of ${esc(app.name)}" width="1280" height="960" loading="lazy" />`)}
     <div class="app-actions">
       ${link(app.open, 'app-btn app-btn-open', `${sized(openIcon, 18)} Open`)}
       ${link(app.code, 'app-btn app-btn-code', `${sized(ghIcon, 18)} GitHub`, 'View source code')}

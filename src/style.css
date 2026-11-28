@@ -587,7 +587,6 @@ a {
 /* Each card spans six shared rows (tag, name, text, stats, screenshot, buttons) so
    the parts line up across cards even when one description is longer. */
 .app-card {
-  position: relative;
   display: grid;
   grid-row: span 6;
   grid-template-rows: subgrid;
@@ -606,15 +605,6 @@ a {
 .app-card:focus-within {
   border-color: var(--fb-blue);
   box-shadow: 0 12px 32px rgb(23 58 120 / 0.09);
-}
-
-/* Invisible link over the whole card, so a click anywhere opens the app. The Open
-   button stays the keyboard/screen-reader link; the buttons sit above this layer. */
-.app-card-link {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  border-radius: inherit;
 }
 
 .app-tag {
@@ -721,7 +711,6 @@ a {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  z-index: 2;
   gap: 10px;
   margin-top: -8px;
 }
